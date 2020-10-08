@@ -1,0 +1,97 @@
+
+
+
+<div>
+    <br>
+    <mat-card>
+        <button mat-raised-button color="primary" routerLink = "/harvestcreate" >ADD NEW HARVEST RECORD</button>
+     <mat-divider></mat-divider>
+     <br>
+      
+   </mat-card>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+    
+    <div fxFlex="100">
+        <div class="mat-elevation-z8">
+            <table  mat-table [dataSource]="harvests" matSort class="mat-elevation-z8">
+  
+                <!-- Name Column -->
+                <ng-container matColumnDef="farmer">
+                    <th mat-header-cell *matHeaderCellDef > Farmer Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.farmer}} </td>
+                </ng-container>
+  
+                <!-- Email Column -->
+                <ng-container matColumnDef="crop">
+                    <th mat-header-cell *matHeaderCellDef > Crop </th>
+                    <td mat-cell *matCellDef="let element"> {{element.crop}} </td>
+                </ng-container>
+  
+                <!-- Phone Column -->
+                <ng-container matColumnDef="operation">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header text>Operation</th>
+                    <td mat-cell *matCellDef="let element"> {{element.operation}} </td>
+                </ng-container> 
+
+                <ng-container matColumnDef="quantity">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header text> Quantity</th>
+                    <td mat-cell *matCellDef="let object "> {{object.quantity}} </td>
+                </ng-container> 
+
+                <ng-container matColumnDef="quality">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header text> Quality</th>
+                    <td mat-cell *matCellDef="let object "> {{object.quality}} </td>
+                </ng-container> 
+  
+                <!-- Status Column -->
+                <!-- <ng-container matColumnDef="roles">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+                    <td mat-cell *matCellDef="let element"> {{element.roles[0].name}} </td>
+                    
+                </ng-container> -->
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef = "let element">
+                        <!-- <button routerLink = "/farmlocationcreate" mat-button color="primary"  (click) ="addSubLoc(element._id)">+Location</button> -->
+                        <button routerLink = "/harvestedit" mat-button color="primary"  (click) ="editHarvest(element.id)">Edit</button>
+                        <button mat-button color="warn"    (click) ="deleteHarvest(element.id)">Delete</button>
+                    </td>
+                </ng-container>
+  
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+               
+            </table>
+  
+           
+        </div>
+  
+    </div>
+
+</div>
+
+<!-- 
+<div id="login-box">
+    <div class="left">
+      <h1>Sign up</h1>
+      
+      <input type="text" name="username" placeholder="Username" />
+      <input type="text" name="email" placeholder="E-mail" />
+      <input type="password" name="password" placeholder="Password" />
+      <input type="password" name="password2" placeholder="Retype password" />
+      
+      <input type="submit" name="signup_submit" value="Sign me up" />
+    </div>
+    
+    <div class="right">
+      <span class="loginwith">Sign in with<br />social network</span>
+      
+      <button class="social-signin facebook">Log in with facebook</button>
+      <button class="social-signin twitter">Log in with Twitter</button>
+      <button class="social-signin google">Log in with Google+</button>
+    </div>
+    <div class="or">OR</div>
+  </div> -->

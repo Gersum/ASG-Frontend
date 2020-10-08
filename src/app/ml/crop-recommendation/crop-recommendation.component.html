@@ -1,0 +1,103 @@
+
+
+<div class="container">
+  <div class="container">
+    <div class="card ">
+        <div class="card-header"> Crop Recommendation using ANN</div>
+      <div class="card-body">
+        <ul class="nav nav-pills" id="btn">
+          <li> <button mat-raised-button (click)="onCreateModel()" color="primary" >create Model</button></li>&nbsp;
+          <li> <button mat-raised-button (click)="onLoadData()" color="primary">Load Data</button></li> &nbsp;
+          <li> <button mat-raised-button (click)="onTrainModel()"color="primary">Train</button></li>&nbsp;
+          <li> <button mat-raised-button (click)="onSaveModel()"color="primary">Save Model</button></li>&nbsp;
+          <li> <button mat-raised-button (click)="onLoadModel()"color="primary">Load Model</button></li>&nbsp;
+          <li> <button mat-raised-button (click)="onEvalModel()"color="primary">Evaluate Model</button></li>&nbsp;
+          <!-- <li><button class="btn btn-success" (click)="onCreateModel() " id="btn1">Create Model</button></li> 
+          <li><button class="btn btn-success" (click)="onLoadData()" id="btn">Load Data</button></li> 
+          <li><button class="btn btn-success" (click)="onTrainModel()"id="btn">Train</button></li> 
+          <li><button class="btn btn-success" (click)="onSaveModel()"id="btn">Save Model</button></li>
+          <li><button class="btn btn-success" (click)="onLoadModel()"id="btn">Load Model</button></li>
+          <li><button class="btn btn-success" (click)="onEvalModel()"id="btn">Evaluate Model</button></li> -->
+        </ul>
+        <div class="row" style="margin-left:0mm">
+          <div class="col-md-8">
+            <br>
+            <mat-progress-bar mode="determinate" color="accent" value="{{currentEpoch}}" class = "tp-margin" ></mat-progress-bar>
+            <!-- <progress-bar [progress]="currentEpoch" [color-degraded]="{'0': '#00cbcb',  '15': '#f9c3d3', '25': '#fd8c8e'}"></progress-bar> -->
+          </div> 
+         
+         <br>
+          <div class="col-md-4">
+          <p></p>
+            <label>Loss: <strong>{{currentLoss}}</strong></label> &nbsp;
+            <label>Accuracy: <strong>{{currentAccuracy}}</strong></label> &nbsp;
+            <label>Evaluation:<strong> {{100*correctEval/(correctEval+wrongEval)}} %</strong></label>
+            
+  
+          </div>
+        </div>
+        <div class="row" *ngIf="modelCreated" >
+          <div class="row" id="pictuuure">
+            <div class="col-md-4" style="margin-right: 70px;" >
+              <img src="assets/images/model-new.png" width="400" >
+            </div> 
+           
+            <div class="col-md-4"  id="picooture2"  >
+              <div class="card" style = "margin-left: 5mm;" >
+                <div class="card-header" >Prediction :<strong>{{prediction}}</strong></div>
+                <div class="card-body">
+                  
+                   <!-- example={altitude:5.1,temperature:3.5,rainfall:1.4,humidity:0.2}; -->
+                   <!-- example={altitude:5.1,temperature:3.5,rainfall:1.4,humidity:0.2}; -->
+                   <form #f="ngForm" (ngSubmit)="onPredict(f.value)">
+                    <div class="form-group">
+                      <label class="control-label">Temperature:</label>
+                      <input class="form-control" type="text" name="altitude" ngModel="" [(ngModel)]="example.altitude">
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label">Humidity:</label>
+                      <input class="form-control" type="text" name="temperature" ngModel="" [(ngModel)]="example.temperature">
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label">PH-value:</label>
+                      <input class="form-control" type="text" name="rainfall" ngModel="" [(ngModel)]="example.rainfall">
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label">Rainfall:</label>
+                      <input class="form-control" type="text" name="humidity" ngModel="" [(ngModel)]="example.humidity">
+                    </div>
+                    <button type="submit">Predict</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-3">
+              <img src="assets/images/{{prediction}}.png" width="200">
+            </div>
+          </div>
+  
+          <div class="col-md-6">
+            <table class="table" *ngIf="xs">
+              <tr>
+               
+                <th>Tempreture (oC)</th>
+                <th>Humidity</th>
+                <th>PH-value</th>
+                <th>Rainfall(mm)</th>
+                <th>Crops</th>
+              </tr>
+              <tr *ngFor="let d of xs; let i=index">
+                <td>{{xs[i][0]}}</td>
+                <td>{{xs[i][1]}}</td>
+                <td>{{xs[i][2]}}</td>
+                <td>{{xs[i][3]}}</td>
+                <td>{{getCropClass(ys[i])}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

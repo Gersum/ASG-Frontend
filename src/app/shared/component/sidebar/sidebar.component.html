@@ -1,0 +1,50 @@
+<mat-nav-list color="green" class="nav-list">
+    <div class="profile-card ">
+        
+        <img src="assets\images\avatar.png" alt="">
+        <div class="header">
+            <br>
+            <a style="color: whitesmoke;" href="/profile" class="nav-link" routerLink="/profile">{{ username }}</a>  
+        </div>
+    
+    </div>
+
+    
+        
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader class="h2">Pages</h2>
+
+    
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active current" class="links"   routerLink="/home"><h3 >Home</h3></a> 
+    <a mat-list-item routerLinkActive="list-item-active current" class="links"   routerLink="/weather"><h3 >Weather Map</h3></a> 
+    <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/prediction"  *ngIf="!showAdminBoard && !showModeratorBoard && !showSeederBoard" ><h3 style="padding-left: 60px;" >National Yieald prediction</h3></a>
+    <a mat-list-item routerLinkActive="list-item-active " class="links"  href="/dashboard" *ngIf="showAdminBoard" routerLink="/dashboard"><h3 style="padding-left: 95px;">Admin Dashboard</h3></a>
+    <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/list" *ngIf="showAdminBoard"> <h3 style="padding-left: 75px;">Manage accounts</h3></a>
+    <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/register" *ngIf="showAdminBoard"><h3 style="padding-left: 80px;" >Create accounts</h3></a>
+    <!-- <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/login"><h3>Logout</h3></a><br> -->
+
+    <a mat-list-item routerLinkActive="list-item-active " class="links"  *ngIf="showModeratorBoard" routerLink="/dashboard"><h3 style="padding-left: 60px;">Extention-Worker-Dashboard</h3></a>
+    <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/sublist" *ngIf="showModeratorBoard"> <h3 style="padding-left: 75px;">Manage Farmers</h3></a>
+    <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/harvestlist" *ngIf="showModeratorBoard"><h3 style="padding-left: 60px;" >Manage Harvest Record</h3></a>
+    <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/plantlist" *ngIf="showModeratorBoard"><h3 style="padding-left: 60px;" >Manage Plant Record</h3></a>
+    <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/recommendation" *ngIf="showModeratorBoard"><h3 style="padding-left: 60px;" >Crop-recommendation</h3></a>
+   
+    <a mat-list-item routerLinkActive="list-item-active " class="links"  *ngIf="showSeederBoard" routerLink="/dashboard"><h3 style="padding-left: 60px;">Seed-Expert-Dashboard</h3></a>
+    <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/plantlist" *ngIf="showSeederBoard"><h3 style="padding-left: 60px;" >Manage Plant Record</h3></a>
+    <!--<h2 matSubheader class="h2">Tools</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+       <mat-icon>import_contacts</mat-icon>
+        Contacts
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/leads" class="for-ground">
+       <mat-icon>contact_phone</mat-icon> 
+        Leads
+    </a>
+
+    button mat-raised-button color="accent" routerLink="dahshboard">Lists</button>&nbsp;-->
+   
+</mat-nav-list>

@@ -1,0 +1,33 @@
+<div>
+<br>
+<mat-card>
+<section class="mat-typography">
+   <h3>create account</h3>
+</section>
+<mat-divider></mat-divider>
+</mat-card>
+<br>
+<form [formGroup]="createForm" class="create-form">
+    <mat-form-field class="field-full-width"> 
+        <input matInput placeholder ="username" formControlName="username" #username>
+    </mat-form-field> 
+    <mat-form-field class="field-full-width"> 
+        <input matInput placeholder ="example@email.com" formControlName="email" #email>
+    </mat-form-field> 
+    <mat-form-field class="field-full-width"> 
+        <!-- <input matInput placeholder ="password" formControlName="description" #description> -->
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" #password >
+    </mat-form-field> 
+    <mat-form-field class="field-full-width-selector"> 
+        <mat-select placeholder="Role" formControlName="roles" class="mat-selector" #roles>
+            <mat-option value ='["admin"]'>Administrator</mat-option>
+            <mat-option value ="['moderator']">Plant expert</mat-option>
+            <mat-option value ="['user']">Extention worker</mat-option>
+        </mat-select>
+         </mat-form-field> 
+         <mat-divider></mat-divider>
+         <br><br>
+         <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
+         <button type="submit" (click)="addIssue(username.value,email.value,password.value,roles.value)" [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary" >Register</button>
+    </form>
+</div>

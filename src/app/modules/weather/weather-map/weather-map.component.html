@@ -1,0 +1,82 @@
+
+
+ <div style=" height: 300px;">
+    <div id="map"
+         leaflet
+         (leafletMapReady)="initializeMap($event)"
+         [leafletOptions]="options"
+         (leafletClick)="onMapClick($event)">
+      <div class="leaflet-bottom leaflet-left">
+      </div>
+    </div>
+  
+  
+  
+  
+  
+  <div class="row" >
+  <div class="col-md-6 offset-md-3">
+     <div *ngIf="weather; else waiting ">
+       <div class="col-sm-12 text-center">
+  
+        <div class="input-group mt-5">
+        <input class="form-control" type="text" #userInput placeholder="Enter city name">
+         <div class="input-group-append">
+            <button class="input-group-text btn btn-outline-primary" (click)="getCity(userInput.value)">Search</button>
+         </div>
+        </div>
+  
+  
+          <h5>current weather and forcast in your city...</h5>
+          <h2>weather in {{weather.name}}, {{weather.sys.country}}</h2>
+        </div>
+  
+        <div class="col-sm-12">
+           <span class="temp"><img src="../../../../assets/icons/{{weather.weather[0].icon}}.png" alt="o1d.png">
+          {{weather.main.temp | number :'1.0-0'}} &#176;F</span>
+        </div>
+        
+  
+       <table class="table table-light table-striped table-borded table-sm">
+          <tbody>
+  
+           <tr>
+              <td>Tempreture</td><td>{{weather.main.temp | number :'1.0-0'}}&#176;F</td>
+           </tr>
+             <tr>
+                <td>Humidity</td><td>{{weather.main.humidity}}%</td>
+             </tr>
+             <tr>
+              <td>Pressure</td><td>{{weather.main.pressure}} hpa</td>
+           </tr>
+           <tr>
+              <td>Sunraise</td><td>{{weather.sys.sunrise * 1000 | date:'H:mm'}}</td>
+           </tr>
+           <tr>
+              <td>Sunset</td><td>{{weather.sys.sunset * 1000 | date:'H:mm'}}</td>
+           </tr>
+           <tr>
+              <td>Geo coordinates</td><td>{{weather.coord.lat}},{{weather.coord.lon}}</td>
+           </tr>
+  
+           
+          </tbody>
+       </table>
+      
+  </div>
+  <ng-template #waiting>
+      <h5>loading ...</h5>
+      <div class="input-group mt-5" *ngIf="locationDeniedEnableCity">
+           <input class="form-control" type="text" #userInput placeholder="Enter city name">
+            <div class="input-group-append">
+               <button class="input-group-text btn btn-outline-primary" (click)="getCity(userInput.value)">Search</button>
+            </div>
+           </div>
+  </ng-template>
+     </div>
+  
+     
+    </div>
+  </div>
+  
+  <!-- <div class="jumbotron">hello</div> -->

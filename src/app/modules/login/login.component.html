@@ -1,0 +1,86 @@
+
+<div [style.backgroundImage]="getBackgroundImageUrl()" class="bg">
+  <div class="wrapper fadeInDown" >
+<div class="col-md-12">
+    <div class="card card-container">
+     
+      <form
+        *ngIf="!isLoggedIn"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="form-group">
+          <label for="username"></label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            [(ngModel)]="form.username"
+            required
+            #username="ngModel"
+            placeholder="User Name"
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && username.invalid"
+          >
+            Username is required!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password"></label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="6"
+            #password="ngModel"
+            placeholder="Password"
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && password.invalid"
+          >
+            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.minlength">
+              Password must be at least 6 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary btn-block"  >
+           <h4 style="color: aliceblue;">Sign in</h4> 
+          </button>
+        </div>
+        <div class="form-group">
+          <div
+          
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && isLoginFailed"
+          >
+          <!-- <img
+          id="profile-img"
+          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+          class="profile-img-card"
+        /> -->
+            Login failed: {{ errorMessage }}
+          </div>
+        </div>
+      </form>
+  
+      <div class="alert alert-success" *ngIf="isLoggedIn">
+        Logged in as {{ roles }}. <button class="btn btn-primary btn-block" routerLink="/home" style="width: 100%;" >continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br><br><br><br>
+</div>
+  
