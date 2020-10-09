@@ -6,6 +6,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 })
 export class WeatherService {
 url='https:api.openweathermap.org/data/2.5/weather';
+url2='https:api.openweathermap.org/data/2.5/forecast';
 apiKey='d4b21727c92120f8da109f63052b5bb7';
   constructor( private http:HttpClient) { }
 
@@ -14,19 +15,30 @@ apiKey='d4b21727c92120f8da109f63052b5bb7';
   let params= new HttpParams()
   .set('lat',lat)
   .set('lon',lon)
-  .set('units','imperial')
+  .set('units','metric')
   .set("appId",this.apiKey)
 
   return this.http.get(this.url,{params});
-  //return this.http.get(`${environment.apiUrl}`+'/data/2.5/weather',{params});
 
             }
+
+            getfivedayWeatherDataByCoords(lat:any,lon: any){
+
+              let params= new HttpParams()
+              .set('lat',lat)
+              .set('lon',lon)
+              .set('units','metric')
+              .set("appId",this.apiKey)
+            
+              return this.http.get(this.url2,{params});
+            
+                        }
 
   getWeatherDataByCityName(city:string){
     
   let params= new HttpParams()
   .set('q',city)
-  .set('units','imperial')
+  .set('units','metric')
   .set("appId",this.apiKey)
 
   return this.http.get(this.url,{params});

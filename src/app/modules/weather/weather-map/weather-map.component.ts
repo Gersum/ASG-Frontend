@@ -14,14 +14,16 @@ export class WeatherMapComponent implements OnInit {
   lat :any;
   lon:any;
   weather:any;
+  forcast:any;
   locationDenied:boolean = true;
   locationDeniedEnableCity = false;
   map: Map;
   mapPoint: MapPoint;
   options: MapOptions;
   lastLayer: any;
+  list:any;
 
-  //results: NominatimResponse[];
+
 
   constructor (private weatherService : WeatherService) {
   }
@@ -29,9 +31,12 @@ export class WeatherMapComponent implements OnInit {
   ngOnInit () {
     this.initializeDefaultMapPoint();
     this.initializeMapOptions();
-    // this.weatherService.getWeatherDataByCoords(7.7,37.7)
-    //     .subscribe(console.log)
-       this.getLocation()
+   // this.weatherService.getWeatherDataByCoords(7.7,37.7)
+    this.weatherService.getfivedayWeatherDataByCoords(7.7,37.7)
+
+        .subscribe(console.log)
+       this.getLocation();
+       this.getLocation2();
         
   }
 
@@ -40,7 +45,7 @@ export class WeatherMapComponent implements OnInit {
     this.createMarker();
   }
 
-  
+ 
 
     getLocation(){
 
@@ -65,11 +70,35 @@ export class WeatherMapComponent implements OnInit {
       });
       }
     }
+
+
+    getLocation2(){
+
+      if("geolocation" in navigator){
+ 
+        navigator.geolocation.watchPosition((success)=>{
+ 
+           this.lat = success.coords.latitude;
+ 
+           this.lon = success.coords.longitude;
+  
+      this.weatherService.getfivedayWeatherDataByCoords(this.lat, this.lon).subscribe(data=>{
+ 
+         this.forcast= data;
+ 
+        });
+       },(error)=>{
+         if(error.code == error.PERMISSION_DENIED){
+           this.locationDenied = false;
+           this.locationDeniedEnableCity = true;
+         }
+       });
+       }
+     }
+  
  
 
-  // refreshSearchList (results: NominatimResponse[]) {
-  //   this.results = results;
-  // }
+ 
 
   private initializeMapOptions () {
     this.options = {
@@ -98,7 +127,16 @@ export class WeatherMapComponent implements OnInit {
          this.lon = e.latlng.lng;
     
         this.weatherService.getWeatherDataByCoords(this.lat,this.lon).subscribe(data=>{
-          this.weather = data
+          this.weather = data;
+        
+
+        })
+
+
+        this.weatherService.getfivedayWeatherDataByCoords(this.lat,this.lon).subscribe(data=>{
+          this.forcast = data;
+        
+
         })
     
   }
