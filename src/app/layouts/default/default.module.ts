@@ -65,6 +65,14 @@ import { CropRecommendationComponent } from 'src/app/ml/crop-recommendation/crop
 import { WeatherMapComponent } from 'src/app/modules/weather/weather-map/weather-map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
+
+import { SorghumPredictionComponent } from 'src/app/ml/sorghum-prediction/sorghum-prediction.component';
+import { WeatPredictionComponent } from 'src/app/ml/weat-prediction/weat-prediction.component';
+import { CropMenuComponent } from 'src/app/ml/crop-menu/crop-menu.component';
+import { MaizePredictionComponent } from 'src/app/ml/maize-prediction/maize-prediction.component';
+import { PeaPredictionComponent } from 'src/app/ml/pea-prediction/pea-prediction.component';
+import { SoybeanPredictionComponent } from 'src/app/ml/soybean-prediction/soybean-prediction.component';
+
 //import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 
@@ -114,6 +122,12 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     YeildPredictionComponent,
     CropRecommendationComponent,
     WeatherMapComponent,
+    SorghumPredictionComponent,
+    WeatPredictionComponent,
+    CropMenuComponent,
+    MaizePredictionComponent,
+    PeaPredictionComponent,
+    SoybeanPredictionComponent,
      ],
   imports: [
  
@@ -142,7 +156,8 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     FontAwesomeModule,
     RouterModule,
     MatProgressBarModule,
-    LeafletModule
+    LeafletModule,
+    
     
    
     

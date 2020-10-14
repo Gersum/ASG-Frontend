@@ -1,11 +1,12 @@
 {
     "/api/*": {
-       "target": "https://api.openweathermap.org/",
+       "target": "https://cors-anywhere.herokuapp.com/https:api.openweathermap.org/data/2.5/weather/",
        "secure": false,
        "logLevel": "debug",
        "changeOrigin": true,
-       "pathRewrite": {
-           "^/api/": ""
-       }       
+       "headers": {
+         "Connection": "keep-alive"
+       },
+       "pathRewrite": { "^/api": "" }       
       }
    }

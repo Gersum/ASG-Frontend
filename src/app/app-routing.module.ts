@@ -23,6 +23,11 @@ import { PlantListComponent } from './modules/plants/plant-list/plant-list.compo
 import { YeildPredictionComponent } from './ml/yeild-prediction/yeild-prediction.component';
 import { CropRecommendationComponent } from './ml/crop-recommendation/crop-recommendation.component';
 import { WeatherMapComponent } from './modules/weather/weather-map/weather-map.component';
+import { WeatPredictionComponent } from './ml/weat-prediction/weat-prediction.component';
+import { SorghumPredictionComponent } from './ml/sorghum-prediction/sorghum-prediction.component';
+import { MaizePredictionComponent } from './ml/maize-prediction/maize-prediction.component';
+import { SoybeanPredictionComponent } from './ml/soybean-prediction/soybean-prediction.component';
+import { PeaPredictionComponent } from './ml/pea-prediction/pea-prediction.component';
 
 //import {HttpClient} from '@angular/common/http'
 
@@ -135,7 +140,31 @@ const routes: Routes = [
       path: 'weather',
       component:WeatherMapComponent,
     },
-         
+
+    {
+      path: 'wheat',
+      component:WeatPredictionComponent,
+    },
+
+    {
+      path: 'sorghum',
+      component:SorghumPredictionComponent,
+    },
+        
+    {
+      path: 'maize',
+      component:MaizePredictionComponent,
+    },
+
+    {
+      path: 'soybean',
+      component:SoybeanPredictionComponent,
+    },
+
+    {
+      path: 'pea',
+      component:PeaPredictionComponent,
+    },
          
 
       //{path: '', redirectTo: '/home', pathMatch: 'full'}

@@ -39,14 +39,14 @@ this.createForm();
         this.updateForm.get('username').setValue( this.user.username);
         this.updateForm.get('email').setValue( this.user.email);
        // this.updateForm.get('password').setValue( this.user.password);
-        this.updateForm.get('roles').setValue( this.user.roles[0].name);
+       // this.updateForm.get('roles').setValue( this.user.roles[0].name);
        
       });
     });
   }
 
-  updateIssue(username,email,roles){
-    this.issuesService.UpdateIssue(this.id,username,email,roles).subscribe(()=>{
+  updateIssue(username,email){
+    this.issuesService.UpdateIssue(this.id,username,email).subscribe(()=>{
      this.snackbar.open('User updated successfully','OK',{
        duration:3000
      });

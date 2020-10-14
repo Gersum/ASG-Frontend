@@ -5,7 +5,10 @@ import { Router } from '@angular/router';
 // import { Issue } from '../../model/issue.model';
 import { User } from '../../model/user.model';
 //import { User } from './../../model/user.model';
-
+import {  MatPaginator } from '@angular/material/paginator';
+import {  MatTableDataSource } from '@angular/material/table';
+import {MatSort} from '@angular/material/sort';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -15,8 +18,11 @@ import { User } from '../../model/user.model';
 export class ListComponent implements OnInit {
     
    users: User[];
-   displayedColumns=['username','email','roles','actions'];
-
+   dataSource : any;
+   
+   displayedColumns=['username','email','roles','createdAt','actions'];
+   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+   @ViewChild(MatSort, {static: true}) sort: MatSort;
   constructor(private issueService :IssuesService, private router:Router) { }
 
   ngOnInit(): void {
@@ -28,11 +34,14 @@ export class ListComponent implements OnInit {
 
   }
 
-  fetchIssues(){
+  public fetchIssues(){
     this.issueService
         .getIssues()
         .subscribe((data:User[])=>{
           this.users = data;
+         this.dataSource = new MatTableDataSource (this.users);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
           console.log("Data requested");
           console.log(this.users);
         });    

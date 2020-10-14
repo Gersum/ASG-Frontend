@@ -21,7 +21,7 @@ export class WeatherMapComponent implements OnInit {
   mapPoint: MapPoint;
   options: MapOptions;
   lastLayer: any;
-  list:any;
+  list:[];
 
 
 
@@ -31,7 +31,7 @@ export class WeatherMapComponent implements OnInit {
   ngOnInit () {
     this.initializeDefaultMapPoint();
     this.initializeMapOptions();
-   // this.weatherService.getWeatherDataByCoords(7.7,37.7)
+   this.weatherService.getWeatherDataByCoords(7.7,37.7)
     this.weatherService.getfivedayWeatherDataByCoords(7.7,37.7)
 
         .subscribe(console.log)
@@ -137,7 +137,7 @@ export class WeatherMapComponent implements OnInit {
           this.forcast = data;
         
 
-        })
+         })
     
   }
 

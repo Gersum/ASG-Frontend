@@ -17,10 +17,10 @@
         <!-- <mat-form-field class="field-full-width"> 
             <input matInput placeholder ="password" formControlName="password" #password>
         </mat-form-field>  -->
-        <mat-form-field class="field-full-width-selector" > 
+        <!-- <mat-form-field class="field-full-width-selector" > 
                 <mat-select placeholder="Role" formControlName="roles" class="mat-selector" #roles> -->
                  
-                <mat-option value ="admin">Administrator</mat-option>
+                <!-- <mat-option value ="admin">Administrator</mat-option>
                 <mat-option value ="moderator">Plant-Expert</mat-option>
                 <mat-option value ="user">Extention-Worker</mat-option>
             </mat-select>
@@ -37,7 +37,7 @@
              <br><br>
              <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
              <!-- <button type="submit" (click)="updateIssue(title.value,responsible.value,description.value,severity.value,status.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary" >Save</button> -->
-             <button type="submit" (click)="updateIssue(username.value,email.value,roles.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary" >Save</button>
+             <button type="submit" (click)="updateIssue(username.value,email.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary" >Save</button>
    
         </form>
     </div>

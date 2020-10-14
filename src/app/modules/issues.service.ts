@@ -36,13 +36,13 @@ export class IssuesService {
            return this.http.post(`${this.url}/api/auth/signup`,user);
     }
 
-    UpdateIssue(id,username,email,roles){
+    UpdateIssue(id,username,email){
       
       const user = {
         username : username,
         email :  email, 
        // password : password,
-        roles:roles
+       // roles:roles
         
         
         
