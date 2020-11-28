@@ -11,7 +11,11 @@ import { Harvest } from 'src/app/model/harvest.model';
   styleUrls: ['./harvest-list.component.scss']
 })
 export class HarvestListComponent implements OnInit {
-  
+  harvestCount: any;
+  farmer:any;
+  crop:any;
+  harvestQuantityCount: any;
+  harverstTotalQtySum:any;
   harvests: Harvest[];
   displayedColumns=['farmer','crop','operation','quantity','quality','actions'];
 
@@ -24,6 +28,9 @@ export class HarvestListComponent implements OnInit {
       })
      
        this.fetchHarvests();
+       this.loadHarvestCount();
+       this.loadQuantityCount();
+       this.loadTotalFarmerQuantity();
   
     }
   
@@ -50,6 +57,28 @@ export class HarvestListComponent implements OnInit {
     addSubLoc(id){
       this.router.navigate([`/farmlocationcreate/${id}`]);      
     }
+
+    loadHarvestCount(){
+      this.harvestService.getHarvestCount().subscribe((harvests)=>{
+        this.harvestCount = harvests[0].count;
+      });
+    }
+  
+    loadQuantityCount(){
+      this.harvestService.getHarvestTotalQuantity().subscribe((harvests)=>{
+        for(let i = 0 ; i <=2 ; i++){
+        this.harvestQuantityCount = harvests[i];}
+       // this.harvestQuantityCount = harvests[0]._id.crop;
+       // this.harvestQuantityCount = harvests[0]._id.total;
+      });
+    }
+
+    loadTotalFarmerQuantity(){
+      this.harvestService.getHarvestTotal().subscribe((harvests)=>{
+        this.harverstTotalQtySum = harvests[0].total;
+      });
+    }
+  
   
   
   }

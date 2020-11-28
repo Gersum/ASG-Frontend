@@ -54,6 +54,14 @@ export class IssuesService {
         return this.http.delete(`${this.url}/api/user/${id}`);
 
       }
+
+      getUserCount(){
+        return this.http.get(`${this.url}/api/user`);
+
+      }
+    
+
+
   // url= 'http://localhost:3000';
  
 

@@ -69,6 +69,21 @@ export class HarvestService {
     return this.http.delete(this.url);
   }
 
+  getHarvestCount(){
+    return this.http.get(`${this.url}/api/harvests/count/harvest/`);
+
+  }
+
+  getHarvestTotalQuantity(){
+    return this.http.get(`${this.url}/api/harvests/quantity/totalSum/`);
+
+  }
+
+  getHarvestTotal(){
+    return this.http.get(`${this.url}/api/harvests/quantity/allTotalSum/`);
+
+  }
+
 }
    
   

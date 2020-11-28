@@ -16,7 +16,7 @@ import { ViewChild } from '@angular/core';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-    
+   userCount: number;
    users: User[];
    dataSource : any;
    
@@ -31,7 +31,7 @@ export class ListComponent implements OnInit {
     })
    
      this.fetchIssues();
-
+     this.loadUserCount();
   }
 
   public fetchIssues(){
@@ -55,6 +55,12 @@ export class ListComponent implements OnInit {
     this.issueService.deleteIssue(id).subscribe(()=>{
         this.fetchIssues();
     })
+  }
+
+  loadUserCount(){
+    this.issueService.getUserCount().subscribe((users)=>{
+      this.userCount = users[0].count;
+    });
   }
 
 

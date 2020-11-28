@@ -18,21 +18,21 @@
 
     
     <mat-divider></mat-divider>
-    <a mat-list-item routerLinkActive="list-item-active current" class="links"   routerLink="/home"><h3 >Home</h3></a> 
-    <a mat-list-item routerLinkActive="list-item-active current" class="links"   routerLink="/weather"><h3 >Weather Map</h3></a> 
+    <a mat-list-item routerLinkActive="list-item-active current" class="links"   routerLink="/home">&nbsp; &nbsp;<fa-icon [icon]="faHome"></fa-icon> &nbsp; &nbsp; Home</a> 
+    <a mat-list-item routerLinkActive="list-item-active current" class="links"   routerLink="/weather">&nbsp; &nbsp;<fa-icon [icon]="faCloudRain"></fa-icon> &nbsp;&nbsp; Weather Map</a> 
     <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/prediction"  *ngIf="!showAdminBoard && !showModeratorBoard && !showSeederBoard" ><h3 style="padding-left: 60px;" >National Yieald prediction</h3></a>
-    <a mat-list-item routerLinkActive="list-item-active " class="links"  href="/dashboard" *ngIf="showAdminBoard" routerLink="/dashboard"><h3 style="padding-left: 95px;">Admin Dashboard</h3></a>
-    <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/list" *ngIf="showAdminBoard"> <h3 style="padding-left: 75px;">Manage accounts</h3></a>
-    <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/register" *ngIf="showAdminBoard"><h3 style="padding-left: 80px;" >Create accounts</h3></a>
+    <a mat-list-item routerLinkActive="list-item-active " class="links"  href="/dashboard" *ngIf="showAdminBoard" routerLink="/dashboard"> &nbsp; &nbsp;<fa-icon [icon]="faTachometerAlt"></fa-icon> &nbsp; &nbsp;Admin Dashboard</a>
+    <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/list" *ngIf="showAdminBoard"> &nbsp; &nbsp;  <fa-icon [icon]="faUserEdit"></fa-icon> &nbsp;&nbsp; Manage accounts</a>
+    <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/register" *ngIf="showAdminBoard"> &nbsp; &nbsp;<fa-icon [icon]="faUserPlus"></fa-icon> &nbsp; &nbsp; Create accounts</a>
     <!-- <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/login"><h3>Logout</h3></a><br> -->
 
-    <a mat-list-item routerLinkActive="list-item-active " class="links"  *ngIf="showModeratorBoard" routerLink="/dashboard"><h3 style="padding-left: 60px;">Extention-Worker-Dashboard</h3></a>
+    <a mat-list-item routerLinkActive="list-item-active " class="links"  *ngIf="showModeratorBoard" routerLink="/dashboard"><h3 style="padding-left: 60px;">&nbsp; &nbsp;<fa-icon [icon]="faTachometerAlt"></fa-icon> &nbsp; &nbsp; Extention-Worker-Dashboard</h3></a>
     <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/sublist" *ngIf="showModeratorBoard"> <h3 style="padding-left: 75px;">Manage Farmers</h3></a>
     <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/harvestlist" *ngIf="showModeratorBoard"><h3 style="padding-left: 60px;" >Manage Harvest Record</h3></a>
     <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/plantlist" *ngIf="showModeratorBoard"><h3 style="padding-left: 60px;" >Manage Plant Record</h3></a>
     <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/recommendation" *ngIf="showModeratorBoard"><h3 style="padding-left: 60px;" >Crop-recommendation</h3></a>
    
-    <a mat-list-item routerLinkActive="list-item-active " class="links"  *ngIf="showSeederBoard" routerLink="/dashboard"><h3 style="padding-left: 60px;">Seed-Expert-Dashboard</h3></a>
+    <a mat-list-item routerLinkActive="list-item-active " class="links"  *ngIf="showSeederBoard" routerLink="/dashboard"><h3 style="padding-left: 60px;"><fa-icon [icon]="faTachometerAlt"></fa-icon> &nbsp; &nbsp; Seed-Expert-Dashboard</h3></a>
     <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/plantlist" *ngIf="showSeederBoard"><h3 style="padding-left: 60px;" >Manage Plant Record</h3></a>
     <!--<h2 matSubheader class="h2">Tools</h2>
 
