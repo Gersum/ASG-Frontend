@@ -104,7 +104,8 @@ export class WeatherMapComponent implements OnInit {
     this.options = {
       zoom: 12,
       layers: [
-        tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 18, attribution: 'OSM'})
+        tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {maxZoom: 18, subdomains:['mt0','mt1','mt2','mt3']}), 
+        
       ]
     }
   }
