@@ -2,6 +2,12 @@ import { Component, OnInit, Input } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import HC_exporting from 'highcharts/modules/exporting';
 import { DashboardService } from 'src/app/modules/dashboard.service';
+import { ChartType, ChartOptions } from 'chart.js';
+
+import { Label } from 'ng2-charts';
+import {Charts} from '../../../model/data';
+import { IssuesService } from '../../../modules/issues.service';
+import * as ChartLabel from 'chartjs-plugin-datalabels';
 
 
 @Component({
@@ -11,228 +17,102 @@ import { DashboardService } from 'src/app/modules/dashboard.service';
 })
 export class AreaComponent implements OnInit {
 
-  chartOptions: {};
-  @Input() data: any = [];
+ 
+  
+  userCount: any;
+  chartData: Charts[] = [];
 
-  Highcharts = Highcharts;
+ // @Input() data = [];
+ datasets: [{
+  label: 'Number of Items Sold in Months',
+   data: [],
+  fill:false,
+  lineTension:0.2,
+  borderColor:"red",
+  borderWidth: 1
+}]
 
-  constructor(public dashboardservice :DashboardService) { }
+  public pieChartOptions: ChartOptions = {
+    
+    responsive: true,
+    legend: {
+      position: 'top',
+     
+     
+       // display: true,
+        
+            
+    },
+    plugins: {
+      datalabels: {
+        formatter: (value, ctx) => {
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+          return label;
+        },
+      },
+    },
 
-  ngOnInit() {
-    this.chartOptions = {
-      chart: {
-        type: 'line'
-      },
-      title: {
-        text: 'Random DATA'
-      },
-      subtitle: {
-        text: 'Demo'
-      },
-      tooltip: {
-        split: true,
-        valueSuffix: ' millions'
-      },
-      credits: {
-        enabled: false
-      },
-      exporting: {
-        enabled: true,
-      },
-      series: this.data
-    };
+    
+  };
+  public pieChartLabels: Label[] = [] ;
+  public pieChartData: number[] = [];
+  public pieChartType: ChartType = 'doughnut';
+  public pieChartLegend = true;
+  public  pieChartPlugins = [ChartLabel];
+  public pieChartColors = [];
+  label: any;
+  
+  
+  
 
-    HC_exporting(Highcharts);
 
-    setTimeout(() => {
-      window.dispatchEvent(
-        new Event('resize')
-      );
-    }, 300);
+
+  constructor(public dashboardservice :DashboardService , private issueService :IssuesService) { }
+
+  
+ 
+  
+
+
+
+
+  getChartData() {
+    this.issueService.getChart()
+    .subscribe((res: any) => {
+      console.log(res);
+      
+      this.chartData = res;
+      this.pieChartLabels = ['Seeder','Total Admin','Extention worker','Alimuni user'];
+      this.pieChartData = [];
+      this.pieChartColors = [];
+      
+      const backgrounds = [];
+      this.chartData.forEach((ch, idx) => {
+       // this.pieChartLabels.push(ch._id);
+        this.pieChartData.push(ch.count);
+        backgrounds.push(`rgba(${0 + (idx * 40)}, ${255 - (idx * 40)}, ${0 + (idx * 40)}, 0.5)`);
+      });
+      this.pieChartColors = [
+        {
+          backgroundColor: backgrounds
+        }
+      ];
+    }, err => {
+      console.log(err);
+    });
   }
 
-}
 
-
-
-    
-    // this.getApiResponse(this.url).then(
-    //   data=>{
-    //     const subjectMarks=[];
-    //     const names=[];
-    //     data.forEach(row=>{
-    //       const temp_row=[
-    //         row.english,
-    //         row.maths,
-    //         row.science
-    //       ];
-    //       names.push(row.name)
-    //       subjectMarks.push(temp_row);
-    //     });
-    //     this.studentModel=subjectMarks;
-    //     this.studentNames=names;
-    //     var dataSeries=[];
-    //     for (var i = 0; i <this.studentModel.length;i++){
-    //       dataSeries.push({
-    //         data:this.studentModel[i],
-    //         name:this.studentNames[i]
-    //       });
-    //     }
-    //     this.chartOptions.series = dataSeries;
-    //     Highcharts.chart('Container',this.chartOptions)
-    //   },
-    
-    // error=>{
-    //   console.log('something went wrong');
-    // })
-    
-    // HC_exporting(Highcharts);
-    // setTimeout(()=>{
-    //  window.dispatchEvent(
-    //    new Event('resize')
-    //  )
-    
-    // },300);
-    //   }
-    
-    //   getApiResponse(url){
-    //     return this.StudentserviceService.Get(this.url)
-    //     .toPromise().then(res=>{
-    //       return res;
-    //     })
-    //   }
-
-   // fetchStudents(){
-    //   this.studentService
-    //       .getStudent()
-    //       .subscribe((data:MarkModel[])=>{
-    //         this.students = data;
-    //         console.log("Data requested");
-    //         console.log(this.students);
-    //       });    
-    // }
-
-
-// import { Component, OnInit, Input } from '@angular/core';
-// import * as Highcharts from 'highcharts';
-// import HC_exporting from 'highcharts/modules/exporting';
-// import { MarkModel } from './../../../model/mark-model';
-// import { StudentserviceService } from './../../../service/studentservice.service';
-// //import { Container } from '@angular/compiler/src/i18n/i18n_ast';
-// @Cimport { DashboardService } from 'src/app/modules/dashboard.service';
-//omponent({
-//   selector: 'app-widget-card',
-//   templateUrl: './card.component.html',
-//   styleUrls: ['./card.component.scss']
-// })
-// export class CardComponent implements OnInit {
+  ngOnInit() {
+    this.loadUserCount();
+    this.getChartData();
+  }
   
-//   //@Input() label: string ;
-//  // @Input() total: string ;
-//   //@Input() percentage: string ;
-//   studentModel:MarkModel[];
-//   url: string = 'http://localhost:3000/students';
-//   studentNames:any;
-
-//   //@Input() data=[];
-
-
-  
-  
-//   //chartOptions: {};
-//   //Highcharts = Highcharts;
-
-//   constructor(private StudentserviceService: StudentserviceService) { }
-//     public chartOptions : any  = {
+  loadUserCount(){
+    this.issueService.getUserCount().subscribe((users)=>{
+      this.userCount = users[0].count;
       
-//     chart: {
-//         type: 'line',
-//        // backgroundColor:null,
-//         borderwidth:0,
-//         margin:[2,2,2,2],
-//         height: 60
-//     },
-//     title: {
-//         text: null},
-//     subtitle: {
-//         text: null
-//     },
-    
-//     tooltip: {
-//         split: true,
-//         outside:true
-//     },
-//     legend:{
-//       enabled:false
-//     },
-//     credits:{
-//        enabled :false
-//     },
-//    exporting:{
-//          enabled:false,
-//    },
-//    xAxis: {
-//      categories:['English','Maths','Science']},
-
-//           yAxis: {
-//             lables:{
-//                enabled:false,
-//             },
-   
-//             title:{
-//              text:'Marks',
-//           },
-            
-//                  },
-//     series: [],
-    
-//     }
-//   ngOnInit() {
-   
-// this.getApiResponse(this.url).then(
-//   data=>{
-//     const subjectMarks=[];
-//     const names=[];
-//     data.forEach(row=>{
-//       const temp_row=[
-//         row.english,
-//         row.maths,
-//         row.science
-//       ];
-//       names.push(row.name)
-//       subjectMarks.push(temp_row);
-//     });
-//     this.studentModel=subjectMarks;
-//     this.studentNames=names;
-//     var dataSeries=[];
-//     for (var i = 0; i <this.studentModel.length;i++){
-//       dataSeries.push({
-//         data:this.studentModel[i],
-//         name:this.studentNames[i]
-//       });
-//     }
-//     this.chartOptions.series = dataSeries;
-//     Highcharts.chart('Container',this.chartOptions)
-//   },
-
-// error=>{
-//   console.log('something went wrong');
-// })
-
-// HC_exporting(Highcharts);
-// setTimeout(()=>{
-//  window.dispatchEvent(
-//    new Event('resize')
-//  )
-
-// },300);
-//   }
-
-//   getApiResponse(url){
-//     return this.StudentserviceService.Get(this.url)
-//     .toPromise().then(res=>{
-//       return res;
-//     })
-//   }
-
-// }
+      console.log("users"+ this.userCount)
+    });
+  }
+}

@@ -19,6 +19,9 @@ import { CardComponent } from './widget/card/card.component';
 import { PieComponent } from './widget/pie/pie.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from '../app-routing.module';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+
+ 
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -44,12 +47,10 @@ import { AppRoutingModule } from '../app-routing.module';
     NgbModule,
     HighchartsChartModule,
     FontAwesomeModule,
-    AppRoutingModule
-    
-    
-    
-    
-    
+    AppRoutingModule,
+    ChartsModule,
+   // MatCarouselModule.forRoot()
+      
   ],
 
   exports: [

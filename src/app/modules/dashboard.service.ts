@@ -2,15 +2,32 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MarkModel } from '../model/mark-model';
 import { Observable } from 'rxjs';
+import { IssuesService } from 'src/app/modules/issues.service';
+
 //import { MarkModel } from './../model/mark-model';
+import { User } from '../model/user.model';
+import { Charts } from '../model/data';
+//import { User } from './../../model/user.model';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
+  userCount: number;
+  userRoleCount: number;
+  userAdminRoleCount: number;
+  userUserRoleCount: number;
+  userExtentionRoleCount: number;
+  userSeederRoleCount: number;
+  users: User[];
+  dataSource : any;
+  chartData: Charts[] = [];
+  
+
   url = 'http://localhost:3000/students';
-    constructor(private http : HttpClient) {
-     const dataset=this.http.get(name);
+    constructor(private http : HttpClient,public issuesService:IssuesService  ) {
+    // const dataset=this.http.get(name);
       console.log('StudentserviceService called');
      // console.log(dataset);
      }
@@ -28,28 +45,22 @@ export class DashboardService {
  
 
   bigChart() {
-    return [{
-      name: 'Asia',
-      data: [502, 635, 809, 947, 1402, 3634, 5268]
-    }, {
-      name: 'Africa',
-      data: [106, 107, 111, 133, 221, 767, 1766]
-    }, {
-      name: 'Europe',
-      data: [163, 203, 276, 408, 547, 729, 628]
-    }, {
-      name: 'America',
-      data: [18, 31, 54, 156, 339, 818, 1201]
-    }, {
-      name: 'Oceania',
-      data: [2, 2, 2, 6, 13, 30, 46]
-    }];
+
+    
+    return this.chartData;
   }
 
   cards() {
-    return [71, 78, 39, 66,6,7,8];
-  }
+     
 
+    return [8, 7, 6, 66,39,78,71];
+  }
+  loadAdminRoleCount(){
+    this.issuesService.getUserRoleCount().subscribe((users)=>{
+      this.userAdminRoleCount = users[1].count; // 1 ---> admin
+    //  console.log("roles count:"+data[0].count)
+    });
+  }
   pieChart() {
     return [{
       name: 'Chrome',

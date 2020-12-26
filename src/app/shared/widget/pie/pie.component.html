@@ -1,2 +1,16 @@
-<highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" style="width:100%; display: block;">
-</highcharts-chart>
+<!-- <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" style="width:100%; display: block;">
+</highcharts-chart> -->
+
+<div class="top-charts">
+    <div class="chart">
+      <canvas baseChart
+        [data]="pieChartData"
+        [labels]="pieChartLabels"
+        [chartType]="pieChartType"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins"
+        [colors]="pieChartColors"
+        [legend]="pieChartLegend">
+      </canvas>
+    </div>
+  </div>

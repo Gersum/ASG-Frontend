@@ -72,6 +72,7 @@ import { CropMenuComponent } from 'src/app/ml/crop-menu/crop-menu.component';
 import { MaizePredictionComponent } from 'src/app/ml/maize-prediction/maize-prediction.component';
 import { PeaPredictionComponent } from 'src/app/ml/pea-prediction/pea-prediction.component';
 import { SoybeanPredictionComponent } from 'src/app/ml/soybean-prediction/soybean-prediction.component';
+import { ChartsModule } from 'ng2-charts';
 
 //import { MatCarouselModule } from '@ngmodule/material-carousel';
 
@@ -157,6 +158,7 @@ import { SoybeanPredictionComponent } from 'src/app/ml/soybean-prediction/soybea
     RouterModule,
     MatProgressBarModule,
     LeafletModule,
+    ChartsModule
     
     
    

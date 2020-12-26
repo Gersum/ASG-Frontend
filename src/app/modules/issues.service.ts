@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Charts } from './../model/data';
+import { tap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -9,9 +11,25 @@ import { Observable } from 'rxjs';
 export class IssuesService {
 
   url= 'http://localhost:8080';
+
+  
+
+
+
+ httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
+ apiUrl = 'http://localhost:8080/';
  
 
   constructor(public http : HttpClient) {}
+
+  getChart(): Observable<Charts> {
+    const url = `${this.url}/api/user/role/count`;
+    return this.http.get<Charts>(url).pipe(
+      tap(_ => console.log(`fetched chart data`))
+    );
+  }
       
     getIssues(){
 
@@ -59,6 +77,13 @@ export class IssuesService {
         return this.http.get(`${this.url}/api/user`);
 
       }
+
+      getUserRoleCount(){
+        return this.http.get(`${this.url}/api/user/role/count`);
+
+      }
+
+      
     
 
 

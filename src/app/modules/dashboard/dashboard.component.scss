@@ -5,9 +5,16 @@
   }
   
   table {
-    width: 100%;
+    width: 140%;
   }
 
   th.mat-sort-header-sorted {
     color: black;
   }
+
+  .mat-paginator{
+    background-color: rgb(216, 215, 215);
+    color: rgb(24, 24, 23);
+    font-size: 1rem;
+    width: 140%;
+}

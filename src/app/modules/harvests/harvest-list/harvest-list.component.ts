@@ -29,7 +29,7 @@ export class HarvestListComponent implements OnInit {
      
        this.fetchHarvests();
        this.loadHarvestCount();
-       this.loadQuantityCount();
+      // this.loadQuantityCount();
        this.loadTotalFarmerQuantity();
   
     }

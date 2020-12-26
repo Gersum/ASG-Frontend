@@ -4,6 +4,8 @@ import HC_exporting from 'highcharts/modules/exporting';
 import { MarkModel } from './../../../model/mark-model';
 //import { StudentserviceService } from './../../../service/studentservice.service';
 //import { Container } from '@angular/compiler/src/i18n/i18n_ast';
+import { TokenStorageService } from '../../../_services/token-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-widget-card',
@@ -19,14 +21,20 @@ export class CardComponent implements OnInit {
   @Input() data=[];
   students: MarkModel[];
 
+  private roles: string[];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showModeratorBoard = false;
+  showSeederBoard  = false;
+  username: string;
+
 
   
   
   chartOptions: {};
   Highcharts = Highcharts;
 
-  constructor() { }
-
+  constructor(private router:Router,private tokenStorageService: TokenStorageService) { }
   ngOnInit() {
 
   //  this.fetchStudents();
@@ -88,8 +96,35 @@ export class CardComponent implements OnInit {
         ]
 
     };
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showModeratorBoard = this.roles.includes('ROLE_EXTENSION');
+      this.showSeederBoard = this.roles.includes('ROLE_SEEDER');
+
+      this.username = user.username;
+    }
+  }
+
+  logout() {
+    this.tokenStorageService.signOut();
+    window.location.reload();
+  }
+
+ 
+  dashboardPage(){
+    this.router.navigate([`/dashboard`]);      
+      
+  }
+
   
   }
+
+  
   // fetchStudents(){
   //   this.studentService
   //       .getStudent()
@@ -98,7 +133,7 @@ export class CardComponent implements OnInit {
   //         console.log("Data requested");
   //         console.log(this.students);
   //       });    
-  }
+  
 
 
 

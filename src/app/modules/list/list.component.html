@@ -1,8 +1,8 @@
-<div class="row ml - 2">
+<!-- <div class="row ml - 2">
      <div class="col-2 offset-5">
          <div class="card">
              <div class="card-body title center">
-          <h4 class="card-title">Total users</h4>
+          <h4 class="card-title">Total Users </h4>
            <br>
            <h4 > {{userCount}} </h4>
              </div>
@@ -10,7 +10,52 @@
 
      </div>
 
-</div>
+     <div class="col-2 offset-5">
+        <div class="card">
+            <div class="card-body title center">
+         <h4 class="card-title">Total Admins</h4>
+          <br>
+          <h4 > {{userAdminRoleCount}} </h4>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-2 offset-5">
+        <div class="card">
+            <div class="card-body title center">
+         <h4 class="card-title">Total Extention worker</h4>
+          <br>
+          <h4 > {{userExtentionRoleCount}} </h4>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-2 offset-5">
+        <div class="card">
+            <div class="card-body title center">
+         <h4 class="card-title">Total Seed Expert</h4>
+          <br>
+          <h4 > {{userSeederRoleCount}} </h4>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-2 offset-5">
+        <div class="card">
+            <div class="card-body title center">
+         <h4 class="card-title">Total Alimuni User</h4>
+          <br>
+          <h4 > {{userUserRoleCount}} </h4>
+            </div>
+        </div>
+
+    </div>
+ -->
+
+<!-- </div> -->
 
 
 <div>
@@ -69,7 +114,7 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                
             </table>
-            <mat-paginator [pageSizeOptions]="[5, 8, 10 ,20]"></mat-paginator> 
+            <mat-paginator [pageSizeOptions]="[9, 15, 20 ,25]"></mat-paginator> 
            
         </div>
   

@@ -17,6 +17,11 @@ import { ViewChild } from '@angular/core';
 })
 export class ListComponent implements OnInit {
    userCount: number;
+   userRoleCount: number;
+   userAdminRoleCount: number;
+   userUserRoleCount: number;
+   userExtentionRoleCount: number;
+   userSeederRoleCount: number;
    users: User[];
    dataSource : any;
    
@@ -32,6 +37,10 @@ export class ListComponent implements OnInit {
    
      this.fetchIssues();
      this.loadUserCount();
+     this.loadAdminRoleCount();
+     this.loadExtentionRoleCount();
+     this.loadSeederRoleCount();
+     this.loadUserRoleCount();
   }
 
   public fetchIssues(){
@@ -60,6 +69,34 @@ export class ListComponent implements OnInit {
   loadUserCount(){
     this.issueService.getUserCount().subscribe((users)=>{
       this.userCount = users[0].count;
+    });
+  }
+
+  loadAdminRoleCount(){
+    this.issueService.getUserRoleCount().subscribe((users)=>{
+      this.userAdminRoleCount = users[1].count; // 1 ---> admin
+    //  console.log("roles count:"+data[0].count)
+    });
+  }
+
+  loadUserRoleCount(){
+    this.issueService.getUserRoleCount().subscribe((users)=>{
+      this.userUserRoleCount = users[3].count; // 3 ---> user
+    //  console.log("roles count:"+data[2].count)
+    });
+  }
+
+  loadExtentionRoleCount(){
+    this.issueService.getUserRoleCount().subscribe((users)=>{
+      this.userExtentionRoleCount =users[2].count; // 2 ---> Extention
+    //  console.log("roles count:"+data[1].count)
+    });
+  }
+
+  loadSeederRoleCount(){
+    this.issueService.getUserRoleCount().subscribe((data)=>{
+      this.userSeederRoleCount = data[0].count; // 0 ----> Seed expert
+    // console.log("roles count:"+data[3].count)
     });
   }
 

@@ -3,35 +3,19 @@ import { DashboardService } from '../dashboard.service';
 import {  MatPaginator } from '@angular/material/paginator';
 import {  MatTableDataSource } from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
+import { IssuesService } from 'src/app/modules/issues.service';
+import { Router } from '@angular/router';
+import { HarvestService } from 'src/app/_services/harvest.service';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-  { position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na' },
-  { position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg' },
-  { position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al' },
-  { position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si' },
-  { position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P' },
-  { position: 16, name: 'Sulfur', weight: 32.065, symbol: 'S' },
-  { position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl' },
-  { position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar' },
-  { position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K' },
-  { position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca' },
-];
+// import { MatTableDataSource } from '@angular/material/table';
+// import { Issue } from '../../model/issue.model';
+import { User } from '../../model/user.model';
+import { any } from '@tensorflow/tfjs';
+//import { User } from './../../model/user.model';
+import { Harvest } from 'src/app/model/harvest.model';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
+
+
 
 @Component({
   selector: 'app-dashboard',
@@ -43,22 +27,157 @@ export class DashboardComponent implements OnInit {
   bigChart = [];
   cards = [];
   pieChart = [];
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource (ELEMENT_DATA);
+ // dataSource = new MatTableDataSource (ELEMENT_DATA);
+  
+ private roles: string[];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showModeratorBoard = false;
+  showSeederBoard  = false;
+  username: string;
+ 
+ 
+ dataSource : any;
+  userCount: number;
+   userRoleCount: number;
+   userAdminRoleCount: number;
+   userUserRoleCount: number;
+   userExtentionRoleCount: number;
+   userSeederRoleCount: number;
+   users: User[];
+
+
+   harvestCount: any;
+   harvestQuantityCount: any;
+  harverstTotalQtySum:any;
+  harvests: Harvest[];
+    
+   displayedColumns=['username','email','roles','createdAt'];
+   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator ;
+   @ViewChild(MatSort, {static: true}) sort: MatSort;
   
 
-   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-   @ViewChild(MatSort, {static: true}) sort: MatSort;
-
-  constructor(private dashboardService: DashboardService) { }
+  constructor(private dashboardService: DashboardService ,private issueService :IssuesService,private harvestService :HarvestService, private router:Router, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit() {
     this.bigChart = this.dashboardService.bigChart();
     this.cards = this.dashboardService.cards();
     this.pieChart = this.dashboardService.pieChart();
 
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+   // this.dataSource.paginator = this.paginator;
+    //this.dataSource.sort = this.sort;
+     this.fetchIssues();
+     this.loadUserCount();
+     this.loadAdminRoleCount();
+     this.loadExtentionRoleCount();
+     this.loadSeederRoleCount();
+     this.loadUserRoleCount();
+
+
+     ////////////////////////////
+
+     
+     this.loadHarvestCount();
+    // this.loadQuantityCount();
+     this.loadTotalFarmerQuantity();
+
+
+
+     this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+     if (this.isLoggedIn) {
+       const user = this.tokenStorageService.getUser();
+       this.roles = user.roles;
+ 
+       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+       this.showModeratorBoard = this.roles.includes('ROLE_EXTENSION');
+       this.showSeederBoard = this.roles.includes('ROLE_SEEDER');
+ 
+       this.username = user.username;
+     }
+   }
+ 
+
+  public fetchIssues(){
+    this.issueService
+        .getIssues()
+        .subscribe((data:User[])=>{
+          this.users = data;
+          this.dataSource = new MatTableDataSource (this.users);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+          console.log("Data requested");
+          console.log(this.users);
+        });    
   }
+
+  editIssue(id){
+      this.router.navigate([`/edit/${id}`]);      
+  }
+
+  deleteIssue(id){
+    this.issueService.deleteIssue(id).subscribe(()=>{
+        this.fetchIssues();
+    })
+  }
+
+  loadUserCount(){
+    this.issueService.getUserCount().subscribe((users)=>{
+      this.userCount = users[0].count;
+    });
+  }
+
+  loadAdminRoleCount(){
+    this.issueService.getUserRoleCount().subscribe((users)=>{
+      this.userAdminRoleCount = users[1].count; // 1 ---> admin
+    //  console.log("roles count:"+data[0].count)
+    });
+  }
+
+  loadUserRoleCount(){
+    this.issueService.getUserRoleCount().subscribe((users)=>{
+      this.userUserRoleCount = users[3].count; // 3 ---> user
+    //  console.log("roles count:"+data[2].count)
+    });
+  }
+
+  loadExtentionRoleCount(){
+    this.issueService.getUserRoleCount().subscribe((users)=>{
+      this.userExtentionRoleCount =users[2].count; // 2 ---> Extention
+    //  console.log("roles count:"+data[1].count)
+    });
+  }
+
+  loadSeederRoleCount(){
+    this.issueService.getUserRoleCount().subscribe((data)=>{
+      this.userSeederRoleCount = data[0].count; // 0 ----> Seed expert
+    // console.log("roles count:"+data[3].count)
+    });
+  }
+
+ ///////////////////////////////////////////////////
+
+ 
+ loadHarvestCount(){
+  this.harvestService.getHarvestCount().subscribe((harvests)=>{
+    this.harvestCount = harvests[0].count;
+  });
+}
+
+loadQuantityCount(){
+  this.harvestService.getHarvestTotalQuantity().subscribe((harvests)=>{
+    for(let i = 0 ; i <=2 ; i++){
+    this.harvestQuantityCount = harvests[i];}
+   // this.harvestQuantityCount = harvests[0]._id.crop;
+   // this.harvestQuantityCount = harvests[0]._id.total;
+  });
+}
+
+loadTotalFarmerQuantity(){
+  this.harvestService.getHarvestTotal().subscribe((harvests)=>{
+    this.harverstTotalQtySum = harvests[0].total;
+  });
+}
+
 
 }
