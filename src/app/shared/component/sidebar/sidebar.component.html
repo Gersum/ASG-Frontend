@@ -8,7 +8,7 @@
         </div>
     
     </div>
-       
+
     <mat-divider></mat-divider>
     <a mat-list-item routerLinkActive="list-item-active current" class="links"   routerLink="/home">&nbsp; &nbsp;<fa-icon [icon]="faHome"></fa-icon> &nbsp; &nbsp; Home</a> 
     <a mat-list-item routerLinkActive="list-item-active current" class="links"   routerLink="/weather">&nbsp; &nbsp;<fa-icon [icon]="faCloudRain"></fa-icon> &nbsp;&nbsp; Weather Map</a> 
@@ -21,14 +21,14 @@
     <a mat-list-item routerLinkActive="list-item-active " class="links"  href="/dashboard" *ngIf="!showAdminBoard && !showModeratorBoard && !showSeederBoard" routerLink="/dashboard"> &nbsp; &nbsp;<fa-icon [icon]="faTachometerAlt"></fa-icon> &nbsp; &nbsp;Almuni-User Dashboard</a>
     <!-- <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/login"><h3>Logout</h3></a><br> -->
 
-    <a mat-list-item routerLinkActive="list-item-active " class="links"  *ngIf="showModeratorBoard" routerLink="/dashboard">&nbsp; &nbsp;<fa-icon [icon]="faTachometerAlt" ></fa-icon> &nbsp; &nbsp; Extention-Worker-Dashboard</a>
+    <a mat-list-item routerLinkActive="list-item-active " class="links"  *ngIf="showModeratorBoard" routerLink="/dashboard">&nbsp; &nbsp;<fa-icon [icon]="faTachometerAlt" ></fa-icon> &nbsp; &nbsp; Dashboard</a>
     <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/sublist" *ngIf="showModeratorBoard">&nbsp; &nbsp;  <fa-icon [icon]="faUserEdit"></fa-icon> &nbsp;&nbsp; Manage Farmers</a>
     <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/harvestlist" *ngIf="showModeratorBoard">&nbsp; &nbsp;  <fa-icon [icon]="faCartArrowDown"></fa-icon> &nbsp;&nbsp; Manage Harvest Record</a>
-    <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/plantlist" *ngIf="showModeratorBoard">&nbsp; &nbsp;  <fa-icon [icon]="faLeaf"></fa-icon> &nbsp;&nbsp; Manage Plant Record</a>
+    <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/plantlist" *ngIf="showModeratorBoard">&nbsp; &nbsp;  <fa-icon [icon]="faLeaf"></fa-icon> &nbsp;&nbsp;  Plant Record</a>
     <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/recommendation" *ngIf="showModeratorBoard">&nbsp; &nbsp;  <fa-icon [icon]="faLayerGroup"></fa-icon> &nbsp;&nbsp; Crop-Recommendation</a>
    
-    <a mat-list-item routerLinkActive="list-item-active " class="links"  *ngIf="showSeederBoard" routerLink="/dashboard"> &nbsp; &nbsp;  <fa-icon [icon]="faTachometerAlt"></fa-icon> &nbsp; &nbsp; Seed-Expert-Dashboard</a>
-    <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/plantlist" *ngIf="showSeederBoard"> &nbsp; &nbsp;  <fa-icon [icon]="faLeaf"></fa-icon> &nbsp;&nbsp; Manage Plant Record</a>
+    <a mat-list-item routerLinkActive="list-item-active " class="links"  *ngIf="showSeederBoard" routerLink="/dashboard"> &nbsp; &nbsp;  <fa-icon [icon]="faTachometerAlt"></fa-icon> &nbsp; &nbsp; Dashboard</a>
+    <a mat-list-item routerLinkActive="list-item-active" class="links"   routerLink="/plantlist" *ngIf="showSeederBoard"> &nbsp; &nbsp;  <fa-icon [icon]="faLeaf"></fa-icon> &nbsp;&nbsp;  Plant Record</a>
     <!--<h2 matSubheader class="h2">Tools</h2>
 
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">

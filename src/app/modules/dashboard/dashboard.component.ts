@@ -6,6 +6,8 @@ import {MatSort} from '@angular/material/sort';
 import { IssuesService } from 'src/app/modules/issues.service';
 import { Router } from '@angular/router';
 import { HarvestService } from 'src/app/_services/harvest.service';
+import { faUserSecret,faUsers,faHatCowboy,faBook,faSeedling,faLeaf} from '@fortawesome/free-solid-svg-icons';
+
 // 
 
 // import { MatTableDataSource } from '@angular/material/table';
@@ -26,6 +28,14 @@ import { PlantService } from 'src/app/_services/plant.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+
+
+  faUserSecret=faUserSecret;
+  faUsers=faUsers;
+  faHatCowboy=faHatCowboy;
+  faBook=faBook;
+  faSeedling=faSeedling;
+  faLeaf=faLeaf;
 
   bigChart = [];
   cards = [];
@@ -220,20 +230,12 @@ SpecificExWorkerHarvestQuantityCountEach(){
   this.harvestService.getSpecificExtentionHarvestEach().subscribe((data)=>{
     //this.ExtentionHarvestCountEach = data ;
 
-    for (let i = 0; i<50;i++){
+    for (let i = 0; i<10;i++){
         if(data[i]._id === this.tokenStorageService.getUser().id)
 
         {
-
-          console.log("Harvest quantity each: ")
-          console.log(data[i].total)
-
           this.ExtentionHarvestCountEach = data[i].total
         }
-
-        else 
-         
-        this.ExtentionHarvestCountEach =0;
 
     }
     
@@ -251,18 +253,12 @@ SpecificExWorkerPlantatonCountEach(){
 
     for (let i = 0; i<50;i++){
         if(data[i]._id === this.tokenStorageService.getUser().id)
-
         {
-
           console.log("Plantation quantity each: ")
           console.log(data[i].total)
 
           this.ExtentionPlantCountEach = data[i].total
         }
-
-        else 
-         
-        this.ExtentionPlantCountEach =0;
 
     }
     

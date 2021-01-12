@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faCoffee,faCloudRain,faHome,faTachometerAlt , faCartArrowDown , faUserEdit,faUserPlus,faSeedling,faLayerGroup,faLeaf} from '@fortawesome/free-solid-svg-icons';
+import { faCoffee,faCloudRain,faHome,faTachometerAlt , faCartArrowDown , faUserEdit,faUserPlus,faSeedling,faLayerGroup,faLeaf,faUserSecret} from '@fortawesome/free-solid-svg-icons';
 import { Router,RouterLinkActive } from '@angular/router';
 import { TokenStorageService } from '../../../_services/token-storage.service';
 @Component({
@@ -10,6 +10,7 @@ import { TokenStorageService } from '../../../_services/token-storage.service';
 export class SidebarComponent implements OnInit {
       faCoffee=faCoffee;
       faHome=faHome;
+      faUserSecret=faUserSecret;
       faCloudRain=faCloudRain;
       faTachometerAlt=faTachometerAlt; 
       faUserEdit = faUserEdit;
