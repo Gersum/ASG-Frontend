@@ -3,15 +3,15 @@
 <div class="container">
   <div class="container">
     <div class="card ">
-        <div class="card-header"> Crop Recommendation using ANN</div>
+        <div class="card-header"> Crop Recommendation</div>
       <div class="card-body">
         <ul class="nav nav-pills" id="btn">
-          <li> <button mat-raised-button (click)="onCreateModel()" color="primary" >create Model</button></li>&nbsp;
+          <!-- <li> <button mat-raised-button (click)="onCreateModel()" color="primary" >create Model</button></li>&nbsp; -->
           <li> <button mat-raised-button (click)="onLoadData()" color="primary">Load Data</button></li> &nbsp;
           <li> <button mat-raised-button (click)="onTrainModel()"color="primary">Train</button></li>&nbsp;
-          <li> <button mat-raised-button (click)="onSaveModel()"color="primary">Save Model</button></li>&nbsp;
-          <li> <button mat-raised-button (click)="onLoadModel()"color="primary">Load Model</button></li>&nbsp;
-          <li> <button mat-raised-button (click)="onEvalModel()"color="primary">Evaluate Model</button></li>&nbsp;
+          <!-- <li> <button mat-raised-button (click)="onSaveModel()"color="primary">Save Model</button></li>&nbsp;
+          <li> <button mat-raised-button (click)="onLoadModel()"color="primary">Load Model</button></li>&nbsp; -->
+          <!-- <li> <button mat-raised-button (click)="onEvalModel()"color="primary">Evaluate Model</button></li>&nbsp; -->
           <!-- <li><button class="btn btn-success" (click)="onCreateModel() " id="btn1">Create Model</button></li> 
           <li><button class="btn btn-success" (click)="onLoadData()" id="btn">Load Data</button></li> 
           <li><button class="btn btn-success" (click)="onTrainModel()"id="btn">Train</button></li> 
@@ -38,8 +38,8 @@
         </div>
         <div class="row" *ngIf="modelCreated" >
           <div class="row" id="pictuuure">
-            <div class="col-md-4" style="margin-right: 70px;" >
-              <img src="assets/images/model-new.png" width="400" >
+            <div class="col-md-4" style="margin-right: 400px;" >
+              <!-- <img src="assets/images/model-new.png" width="400" > -->
             </div> 
            
             <div class="col-md-4"  id="picooture2"  >

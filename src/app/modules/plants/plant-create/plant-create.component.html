@@ -1,132 +1,158 @@
 <div class="submit-form">
-    <h1>Planting Record Information</h1>
       <div *ngIf="!submitted">
-     
-  
-        <div class="form-group">
-            <label for="operation">Farmer Name</label>
-            <input
-              class="form-control"
-              id="farmer"
-              required
-              [(ngModel)]="plant.farmer"
-              name="farmer"
-            />
-          </div>
-  
-        <div class="form-group">
-            <label for="crop">Crop</label>
-            <input
-              class="form-control"
-              id="crop"
-              required
-              [(ngModel)]="plant.crop"
-              name="crop"
-            />
-          </div>
-  
+  <div class="card" style="padding: 5%;">
 
-        <div class="form-group">
-          <label for="operation">Operation</label>
-          <input
-            class="form-control"
-            id="operation"
-            required
-            [(ngModel)]="plant.operation"
-            name="operation"
-          />
-        </div>
+    <div class="card-title" style="padding-left: 1%;">
+      <h1>Planting Record Information</h1>
+      <hr>
+    </div>
+    <div class="form-group">
+      <label for="operation">Farmer Name</label>
+      <input
+        class="form-control"
+        id="farmer"
+        required
+        [(ngModel)]="plant.farmer"
+        name="farmer"
+      />
+    </div>
 
+<div class="form-row">
+    <div class="col-md-4 mb-3">
+      <div class="form-group">
+        <label for="crop">Crop</label>
+        <input
+          class="form-control"
+          id="crop"
+          required
+          [(ngModel)]="plant.crop"
+          name="crop"
+        />
+      </div>
+    </div>
 
-        <div class="form-group">
-            <label for="quantity">Quantity</label>
-            <input
-              class="form-control"
-              id="quantity"
-              required
-              [(ngModel)]="plant.quantity"
-              name="quantity"
-            />
-          </div>
+    <div class="col-md-4 mb-3">
+      <div class="form-group">
+        <label for="operation">Operation</label>
+        <input
+          class="form-control"
+          id="operation"
+          required
+          [(ngModel)]="plant.operation"
+          name="operation"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input
+          class="form-control"
+          id="quantity"
+          required
+          [(ngModel)]="plant.quantity"
+          name="quantity"
+        />
+      </div>
+    </div>
+  
+  </div>
+
+  <div class="form-row">
+     <div class="col-md-4 mb-3">
+      <div class="form-group">
+        <label for="quality">Quality</label>
+        <input
+          class="form-control"
+          id="quality"
+          required
+          [(ngModel)]="plant.quality"
+          name="quality"
+        />
+      </div>
+     </div>
+
+     <div class="col-md-4 mb-3">
+      <div class="form-group">
+        <label for="type">Type</label>
+        <input
+          class="form-control"
+          id="type"
+          required
+          [(ngModel)]="plant.type"
+          name="type"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <div class="form-group">
+        <label for="variety">Variety</label>
+        <input
+          class="form-control"
+          id="variety"
+          required
+          [(ngModel)]="plant.variety"
+          name="variety"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <div class="form-group">
+        <label for="rainfall">Rainfall</label>
+        <input
+          class="form-control"
+          id="rainfall"
+          required
+          [(ngModel)]="plant.rainfall"
+          name="rainfall"
+        />
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="form-group">
+        <label for="yearOfrelease">Year of release</label>
+        <input
+          class="form-control"
+          id="yearOfrelease"
+          required
+          [(ngModel)]="plant.yearOfrelease"
+          name="yearOfrelease"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="seedRate">Seed rate</label>
+      <input
+        class="form-control"
+        id="seedRate"
+        required
+        [(ngModel)]="plant.seedRate"
+        name="seedRate"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="additionalInfo">Additional Information</label>
+      <input
+        class="form-control"
+        id="additionalInfo"
+        required
+        [(ngModel)]="plant.additionalInfo"
+        name="additionalInfo"
+      />
+    </div>
+  </div>
     
-          <div class="form-group">
-            <label for="quality">Quality</label>
-            <input
-              class="form-control"
-              id="quality"
-              required
-              [(ngModel)]="plant.quality"
-              name="quality"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="type">Type</label>
-            <input
-              class="form-control"
-              id="type"
-              required
-              [(ngModel)]="plant.type"
-              name="type"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="variety">Variety</label>
-            <input
-              class="form-control"
-              id="variety"
-              required
-              [(ngModel)]="plant.variety"
-              name="variety"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="rainfall">Rainfall</label>
-            <input
-              class="form-control"
-              id="rainfall"
-              required
-              [(ngModel)]="plant.rainfall"
-              name="rainfall"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="yearOfrelease">Year of release</label>
-            <input
-              class="form-control"
-              id="yearOfrelease"
-              required
-              [(ngModel)]="plant.yearOfrelease"
-              name="yearOfrelease"
-            />
-          </div>
-
-
-          <div class="form-group">
-            <label for="seedRate">Seed rate</label>
-            <input
-              class="form-control"
-              id="seedRate"
-              required
-              [(ngModel)]="plant.seedRate"
-              name="seedRate"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="additionalInfo">Additional Information</label>
-            <input
-              class="form-control"
-              id="additionalInfo"
-              required
-              [(ngModel)]="plant.additionalInfo"
-              name="additionalInfo"
-            />
-          </div>
-    
+</div>   
+ 
         
     
         <button (click)="savePlant()" class="btn btn-success">Submit</button>

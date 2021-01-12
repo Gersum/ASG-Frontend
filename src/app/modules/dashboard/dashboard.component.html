@@ -1,24 +1,24 @@
-<div>
+<!-- <div>
   <app-widget-area [data]="bigChart"></app-widget-area>
-</div>
+</div> -->
 
-<br>
+<!-- <br>
 
 <mat-divider></mat-divider>
 
-<br>
+<br> -->
 
 <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
-  <mat-card fxFlex="25">
+  <mat-card fxFlex="25" *ngIf="!showUserBoard && !showModeratorBoard && !showSeederBoard">
       <app-widget-card label="Alimuni Users" total=" {{userUserRoleCount}} " [data]="cards"></app-widget-card>
   </mat-card>
-  <mat-card fxFlex="25">
+  <mat-card fxFlex="25" *ngIf="!showUserBoard && !showModeratorBoard && !showSeederBoard">
       <app-widget-card label="Total Admins" total="{{userAdminRoleCount}} "  [data]="cards"></app-widget-card>
   </mat-card>
-  <mat-card fxFlex="25">
+  <mat-card fxFlex="25"  *ngIf="!showUserBoard && !showModeratorBoard && !showSeederBoard">
       <app-widget-card label="Total Extention worker" total=" {{userExtentionRoleCount}}"  [data]="cards"></app-widget-card>
   </mat-card>
-  <mat-card fxFlex="25">
+  <mat-card fxFlex="25"  *ngIf="!showUserBoard && !showModeratorBoard && !showSeederBoard">
       <app-widget-card label="Total Seed Expert" total="{{userSeederRoleCount}}"  [data]="cards"></app-widget-card>
   </mat-card>
 
@@ -31,6 +31,30 @@
 <mat-card fxFlex="25"  *ngIf="!showAdminBoard && !showModeratorBoard && !showSeederBoard">
     <app-widget-card label="Total Harvest (kg) " total="{{ harverstTotalQtySum}}"  [data]="cards"></app-widget-card>
 </mat-card>
+
+<mat-card fxFlex="25"  *ngIf="!showAdminBoard && !showUserBoard && !showSeederBoard">
+    <app-widget-card label="Total farmers " total="{{ farmers}}"  [data]="cards"></app-widget-card>
+</mat-card>
+
+<mat-card fxFlex="25"  *ngIf="!showAdminBoard && !showUserBoard && !showSeederBoard">
+    <app-widget-card label="No. of Harvest " total="{{ ExtentionHarvestCount}}"  [data]="cards"></app-widget-card>
+</mat-card>
+
+<mat-card fxFlex="25"  *ngIf="!showAdminBoard && !showUserBoard && !showSeederBoard">
+    <app-widget-card label="No. Plantation " total="{{ ExtentionPlantationCount}}"  [data]="cards"></app-widget-card>
+</mat-card>
+
+<mat-card fxFlex="25"  *ngIf="!showAdminBoard  && !showSeederBoard">
+    <app-widget-card label="Total Harvest Quantity" total="{{ ExtentionHarvestCountEach}}"  [data]="cards"></app-widget-card>
+</mat-card>
+
+<mat-card fxFlex="25"  *ngIf="!showAdminBoard  && !showSeederBoard">
+    <app-widget-card label="Total Plantaion Quantity" total="{{ ExtentionPlantCountEach}}"  [data]="cards"></app-widget-card>
+</mat-card>
+
+
+
+
 </div>
 
 <br>

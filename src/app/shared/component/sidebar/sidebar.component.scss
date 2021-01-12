@@ -5,43 +5,34 @@
         margin-right:20px;
         
     }
-
-
     background-color: rgb(24, 83, 24);
-
-  
 }
     .profile-card{
     text-align: center;
     padding:0px 20px 20px 20px;
     img{
-        width:80px ;
-        height:80px;
+        width:40px ;
+        height:40px;
         object-fit: cover;
-        border-radius: 50px;
-        -webkit-border-radius: 50px;
-        -moz-border-radius: 50px;
-        -ms-border-radius: 50px;
-        -o-border-radius: 50px;
+        border-radius: 20px;
+        -webkit-border-radius: 200px;
+        -moz-border-radius: 200px;
+        -ms-border-radius: 200px;
+        -o-border-radius: 200px;
 }
 }
 
 .nav-list{
-
-    background-color: rgba(13, 58, 13, 0.952);
-
-    height: 667px; // check this out for browser compatibility
+   background-color: rgba(13, 58, 13, 0.952);
 }
 
 
 .mat-list-item{
 
-    color: white;
+  color: white;
     
+  //background-color: rgb(45, 150, 45);
     
-    //background-color: rgb(45, 150, 45);
-    
-
 }
 
 .h2 {

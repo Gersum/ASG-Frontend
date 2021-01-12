@@ -32,6 +32,8 @@ export class HarvestService {
 
   
 
+  
+
   create(data) {
     return this.http.post(`${this.url}/api/harvests`, data);
   }
@@ -84,6 +86,15 @@ export class HarvestService {
 
   }
 
+  getSpecificExtentionHarvest() {
+   
+    return this.http.get(`${this.url}/api/harvests/count/SpecificHarvest/`);
+  }
+
+  getSpecificExtentionHarvestEach() {
+   
+    return this.http.get(`${this.url}/api/harvests/quantity/allTotalSumEach`);
+  }
 }
    
   

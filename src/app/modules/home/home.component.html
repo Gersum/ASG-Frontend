@@ -1,27 +1,10 @@
 
-
-<div class="top-charts">
-      <div class="chart">
-        <canvas baseChart
-          [data]="pieChartData"
-          [labels]="pieChartLabels"
-          [chartType]="pieChartType"
-          [options]="pieChartOptions"
-          [plugins]="pieChartPlugins"
-          [colors]="pieChartColors"
-          [legend]="pieChartLegend">
-        </canvas>
-      </div>
-    </div>
-
-
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  
-  <canvas id="lineChart" ></canvas>
-  <canvas id="barChart"></canvas>
-  <canvas id="pieChart"></canvas>
+<div>
+  Select crop for prediction 
+	<select [(ngModel)]="currentRoute" (change)="routeTo(currentRoute)" >
+    <!-- ngValue can be used to bind object while value is suitable for binding string -->
+    <option *ngFor="let r of routes" [ngValue]="r.value">{{r.display}}</option>
+  </select>
 </div>
-
-
-<router-outlet></router-outlet>
+{{currentRoute}}
+<router-outlet (activate)="onActivate($event)"></router-outlet>

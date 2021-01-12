@@ -50,6 +50,8 @@ export class CropRecommendationComponent implements OnInit {
  }
 
  onLoadData() {
+
+    this.onCreateModel()
    this.httpClient.get("assets/ds-train-clean.csv",{responseType:'text'})
      .subscribe(data=>{
        let parsedData=this.parseData(data);
@@ -109,6 +111,8 @@ export class CropRecommendationComponent implements OnInit {
        }
      })
 
+     
+
  }
 
  onSaveModel() {
@@ -151,6 +155,7 @@ export class CropRecommendationComponent implements OnInit {
  }
 //example={altitude:5.1,temperature:3.5,rainfall:1.4,humidity:0.2};
  onPredict(value: any) {
+    this.onEvalModel();
    let x1=parseFloat(value.altitude);
    let x2=parseFloat(value.temperature);
    let x3=parseFloat(value.rainfall);

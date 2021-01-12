@@ -73,7 +73,7 @@ import { MaizePredictionComponent } from 'src/app/ml/maize-prediction/maize-pred
 import { PeaPredictionComponent } from 'src/app/ml/pea-prediction/pea-prediction.component';
 import { SoybeanPredictionComponent } from 'src/app/ml/soybean-prediction/soybean-prediction.component';
 import { ChartsModule } from 'ng2-charts';
-
+import { NguCarouselModule } from '@ngu/carousel';
 //import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 
@@ -158,7 +158,9 @@ import { ChartsModule } from 'ng2-charts';
     RouterModule,
     MatProgressBarModule,
     LeafletModule,
-    ChartsModule
+    ChartsModule,
+    NguCarouselModule 
+    
     
     
    

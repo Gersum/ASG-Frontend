@@ -75,6 +75,14 @@ export class PlantService {
     return this.http.delete(this.url);
   }
 
+  getSpecificExWorkerPlant() {
+    return this.http.get(`${this.url}/api/plants/count/specificPlant`);
+  }
+
+  getSpecificExWorkerPlantQuantity() {
+    return this.http.get(`${this.url}/api/plants/count/specificPlantQuantityCount`);
+  }
+
 }
    
   

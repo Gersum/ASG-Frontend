@@ -6,6 +6,7 @@ import {MatSort} from '@angular/material/sort';
 import { IssuesService } from 'src/app/modules/issues.service';
 import { Router } from '@angular/router';
 import { HarvestService } from 'src/app/_services/harvest.service';
+// 
 
 // import { MatTableDataSource } from '@angular/material/table';
 // import { Issue } from '../../model/issue.model';
@@ -14,6 +15,8 @@ import { any } from '@tensorflow/tfjs';
 //import { User } from './../../model/user.model';
 import { Harvest } from 'src/app/model/harvest.model';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
+import { SubscriberService } from 'src/app/_services/subscriber.service';
+import { PlantService } from 'src/app/_services/plant.service';
 
 
 
@@ -34,6 +37,7 @@ export class DashboardComponent implements OnInit {
   showAdminBoard = false;
   showModeratorBoard = false;
   showSeederBoard  = false;
+  showUserBoard  = false;
   username: string;
  
  
@@ -45,19 +49,24 @@ export class DashboardComponent implements OnInit {
    userExtentionRoleCount: number;
    userSeederRoleCount: number;
    users: User[];
+   farmers:any;
+   ExtentionHarvestCount:any;
+   ExtentionPlantationCount:any;
 
 
    harvestCount: any;
    harvestQuantityCount: any;
   harverstTotalQtySum:any;
   harvests: Harvest[];
+  ExtentionHarvestCountEach:any;
+  ExtentionPlantCountEach : any;
     
    displayedColumns=['username','email','roles','createdAt'];
    @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator ;
    @ViewChild(MatSort, {static: true}) sort: MatSort;
   
 
-  constructor(private dashboardService: DashboardService ,private issueService :IssuesService,private harvestService :HarvestService, private router:Router, private tokenStorageService: TokenStorageService) { }
+  constructor(private dashboardService: DashboardService ,private issueService :IssuesService,private harvestService :HarvestService, private subService:SubscriberService,private plantService : PlantService , private router:Router, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit() {
     this.bigChart = this.dashboardService.bigChart();
@@ -72,6 +81,7 @@ export class DashboardComponent implements OnInit {
      this.loadExtentionRoleCount();
      this.loadSeederRoleCount();
      this.loadUserRoleCount();
+     
 
 
      ////////////////////////////
@@ -80,7 +90,11 @@ export class DashboardComponent implements OnInit {
      this.loadHarvestCount();
     // this.loadQuantityCount();
      this.loadTotalFarmerQuantity();
-
+     this.SpecificExWorkerSubscribersCount();
+     this.SpecificExWorkerHarvestCount();
+     this.SpecificExWorkerPlantatonCount();
+     this.SpecificExWorkerHarvestQuantityCountEach();
+      this.SpecificExWorkerPlantatonCountEach();
 
 
      this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -92,6 +106,8 @@ export class DashboardComponent implements OnInit {
        this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
        this.showModeratorBoard = this.roles.includes('ROLE_EXTENSION');
        this.showSeederBoard = this.roles.includes('ROLE_SEEDER');
+       this.showUserBoard = this.roles.includes('ROLE_USER');
+
  
        this.username = user.username;
      }
@@ -178,6 +194,84 @@ loadTotalFarmerQuantity(){
     this.harverstTotalQtySum = harvests[0].total;
   });
 }
+
+ SpecificExWorkerSubscribersCount(){
+  this.subService.getSpecificFarmersCount().subscribe((farmers)=>{
+    this.farmers = farmers ;
+  });
+}
+
+SpecificExWorkerHarvestCount(){
+  this.harvestService.getSpecificExtentionHarvest().subscribe((ExtentionHarvestCount)=>{
+    this.ExtentionHarvestCount = ExtentionHarvestCount ;
+    
+  });
+}
+
+SpecificExWorkerPlantatonCount(){
+  this.plantService.getSpecificExWorkerPlant().subscribe((ExtentionPlantationCount)=>{
+    this.ExtentionPlantationCount = ExtentionPlantationCount ;
+    
+  });
+}
+
+
+SpecificExWorkerHarvestQuantityCountEach(){
+  this.harvestService.getSpecificExtentionHarvestEach().subscribe((data)=>{
+    //this.ExtentionHarvestCountEach = data ;
+
+    for (let i = 0; i<50;i++){
+        if(data[i]._id === this.tokenStorageService.getUser().id)
+
+        {
+
+          console.log("Harvest quantity each: ")
+          console.log(data[i].total)
+
+          this.ExtentionHarvestCountEach = data[i].total
+        }
+
+        else 
+         
+        this.ExtentionHarvestCountEach =0;
+
+    }
+    
+    
+  });
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+SpecificExWorkerPlantatonCountEach(){
+  this.plantService.getSpecificExWorkerPlantQuantity().subscribe((data)=>{
+    //this.ExtentionHarvestCountEach = data ;
+
+    for (let i = 0; i<50;i++){
+        if(data[i]._id === this.tokenStorageService.getUser().id)
+
+        {
+
+          console.log("Plantation quantity each: ")
+          console.log(data[i].total)
+
+          this.ExtentionPlantCountEach = data[i].total
+        }
+
+        else 
+         
+        this.ExtentionPlantCountEach =0;
+
+    }
+    
+    
+  });
+}
+
+
+
 
 
 }

@@ -20,6 +20,9 @@ import { PieComponent } from './widget/pie/pie.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from '../app-routing.module';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { NguCarouselModule } from '@ngu/carousel';
+
+
 
  
 @NgModule({
@@ -49,6 +52,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     FontAwesomeModule,
     AppRoutingModule,
     ChartsModule,
+    NguCarouselModule
    // MatCarouselModule.forRoot()
       
   ],
@@ -60,7 +64,9 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     AreaComponent,
     CardComponent,
     PieComponent,
-  ]
+  ],
+
+  
 })
 export class SharedModule {
  

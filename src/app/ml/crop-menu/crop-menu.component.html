@@ -1,7 +1,11 @@
 <div><h2 class="text-center"><strong>National Yield Prediction </strong> </h2></div>
-<button mat-raised-button color="accent" routerLink="/wheat">wheat</button>&nbsp;
-<button mat-raised-button color="accent" routerLink="/sorghum">Sorghum</button>&nbsp;
-<button mat-raised-button color="accent" routerLink="/maize">Maize</button>&nbsp;
-<button mat-raised-button color="accent" routerLink="/soybean">Soybeans</button>&nbsp;
-<button mat-raised-button color="accent" routerLink="/pea">Peas</button>&nbsp;
-<button mat-raised-button color="accent" routerLink="/prediction">Back</button>&nbsp;
+<div>
+    Select crop for prediction 
+      <select [(ngModel)]="currentRoute" (change)="routeTo(currentRoute)" >
+      <!-- ngValue can be used to bind object while value is suitable for binding string -->
+      <option *ngFor="let r of routes" [ngValue]="r.value">{{r.display}}</option>
+    </select>
+  </div>
+  {{currentRoute}}
+  <router-outlet (activate)="onActivate($event)"></router-outlet>
+

@@ -107,6 +107,10 @@ export class SubscriberService {
     return this.http.delete(this.url);
   }
 
+  getSpecificFarmersCount() {
+    return this.http.get(`${this.url}/api/subscribers/specificfarmers/count/`);
+  }
+
   // findByTitle(title) {
   //   return this.http.get(`${this.url}?title=${title}`);
   // }
