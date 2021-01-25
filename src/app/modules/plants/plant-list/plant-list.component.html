@@ -1,92 +1,71 @@
 
+<div class="card" style="width: 15%; margin-bottom: 1%;">
 
-
-<div>
-    <br>
-    <mat-card>
-        <button mat-raised-button color="primary" routerLink = "/plantcreate" >ADD NEW PLANT RECORD</button>
-     <mat-divider></mat-divider>
-     <br>
-      
-   </mat-card>
+    <button mat-raised-button color="primary" routerLink = "/plantcreate" >+ New Plantation</button>      
 </div>
 
-<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
-    
-    <div fxFlex="100">
-        <div class="mat-elevation-z8">
-            <table  mat-table [dataSource]="plants" matSort class="mat-elevation-z8">
-  
-                <!-- Name Column -->
+<div class="card" style="width: 95%; box-shadow: 0  5px 6px 0 rgba(0,0,0,0.2);  position:absolute; left:25px; "  >
+            <!-- <table  mat-table [dataSource]="plants" matSort class="mat-elevation-z8"> -->
+                <table style="width: 100%;"  mat-table [dataSource]="plants" matSort>
                 <ng-container matColumnDef="farmer">
-                    <th mat-header-cell *matHeaderCellDef > Farmer</th>
-                    <td mat-cell *matCellDef="let element"> {{element.farmer}} </td>
+                    <th mat-header-cell *matHeaderCellDef style="font-size: 17px;font-weight: bold; color: black;"> Farmer</th>
+                    <td mat-cell *matCellDef="let element" > {{element.farmer}} </td>
                 </ng-container>
   
-                <!-- Email Column -->
                 <ng-container matColumnDef="crop">
-                    <th mat-header-cell *matHeaderCellDef > Crop </th>
+                    <th mat-header-cell *matHeaderCellDef style="font-size: 17px;font-weight: bold; color: black;" > Crop </th>
                     <td mat-cell *matCellDef="let element"> {{element.crop}} </td>
                 </ng-container>
   
-                <!-- Phone Column -->
                 <ng-container matColumnDef="operation">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header text>Operation</th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header text style="font-size: 17px;font-weight: bold; color: black;">Operation</th>
                     <td mat-cell *matCellDef="let element"> {{element.operation}} </td>
                 </ng-container> 
 
                 <ng-container matColumnDef="quantity">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header text> Quantity</th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header text style="font-size: 17px;font-weight: bold; color: black;"> Quantity</th>
                     <td mat-cell *matCellDef="let object "> {{object.quantity}} </td>
                 </ng-container> 
 
                 <ng-container matColumnDef="quality">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header text> Quality</th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header text style="font-size: 17px;font-weight: bold; color: black;"> Quality</th>
                     <td mat-cell *matCellDef="let object "> {{object.quality}} </td>
                 </ng-container> 
                 
                 <ng-container matColumnDef="type">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header text> Type</th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header text style="font-size: 17px;font-weight: bold; color: black;"> Type</th>
                     <td mat-cell *matCellDef="let object "> {{object.type}} </td>
 
                 </ng-container> 
                 
                 <ng-container matColumnDef="variety">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header text> Variety</th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header text style="font-size: 17px;font-weight: bold; color: black;"> Variety</th>
                     <td mat-cell *matCellDef="let object "> {{object.variety}} </td>
                 </ng-container> 
                 
                 <ng-container matColumnDef="rainfall">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header text> Rainfall</th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header text style="font-size: 17px;font-weight: bold; color: black;"> Rainfall</th>
                     <td mat-cell *matCellDef="let object "> {{object.rainfall}} </td>
                 </ng-container> 
 
                 <ng-container matColumnDef="yearOfrelease">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header text> Year Of Plantation</th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header text style="font-size: 17px;font-weight: bold; color: black;"> Year Of Plantation</th>
                     <td mat-cell *matCellDef="let object "> {{object.yearOfrelease }} </td>
                 </ng-container> 
 
                 <ng-container matColumnDef="seedRate">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header text> Seed-Rate</th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header text style="font-size: 17px;font-weight: bold; color: black;"> Seed-Rate</th>
                     <td mat-cell *matCellDef="let object "> {{object.seedRate}} </td>
                 </ng-container> 
 
                 <ng-container matColumnDef="createdAt">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header text> Date created</th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header text style="font-size: 17px;font-weight: bold; color: black;"> Date created</th>
                     <td mat-cell *matCellDef="let object "> {{object.createdAt| date : 'short'}} </td>
                 </ng-container> 
-  
-                <!-- Status Column -->
-                <!-- <ng-container matColumnDef="roles">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
-                    <td mat-cell *matCellDef="let element"> {{element.roles[0].name}} </td>
-                    
-                </ng-container> -->
 
                 <ng-container matColumnDef="actions">
-                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <th mat-header-cell *matHeaderCellDef style="font-size: 17px;font-weight: bold; color: black;">Actions</th>
                     <td mat-cell *matCellDef = "let element">
-                        <!-- <button routerLink = "/farmlocationcreate" mat-button color="primary"  (click) ="addSubLoc(element._id)">+Location</button> -->
                         <button routerLink = "/plantedit" mat-button color="primary"  (click) ="editPlant(element.id)">Edit</button>
                         <button mat-button color="warn"    (click) ="deletePlant(element.id)">Delete</button>
                     </td>
@@ -96,10 +75,7 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                
             </table>
-  
+            <mat-divider></mat-divider>
+            <mat-paginator [pageSizeOptions]="[10, 15, 20 ,25]"></mat-paginator> 
            
         </div>
-  
-    </div>
-
-</div>

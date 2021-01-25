@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="generator" content="HelpSmith 6.4 (Build 17.127)">
+<link type="text/css" href="css/ui/jquery-ui-1.9.2.custom.min.css" rel="stylesheet">
+<link type="text/css" href="css/dynatree/ui.dynatree.css?e3fa3091" rel="stylesheet">
+<link type="text/css" href="css/navi-page/navi.css?e3fa3091" rel="stylesheet">
+<link type="text/css" href="css/navi-page/naviu.css?447c01c1" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js?e3fa3091"></script>
+<script type="text/javascript" src="js/jquery.dynatree.min.js?e3fa3091"></script>
+<script type="text/javascript" src="js/settings.js?447c01c1"></script>
+<script type="text/javascript" src="js/core.js?e3fa3091"></script>
+<script type="text/javascript" src="js/search.js?e3fa3091"></script>
+<script type="text/javascript" src="js/navi-page.js?e3fa3091"></script>
+<script type="text/javascript" src="js/topic-table.js?447c01c1" charset="UTF-8"></script>
+<script type="text/javascript" src="js/search-index.js?447c01c1" charset="UTF-8"></script>
+</head>
+<body>
+<input type="hidden" name="sort-control-title" value="Sort by">
+<input type="hidden" name="sort-menu-item-rank" value="Most relevant">
+<input type="hidden" name="sort-menu-item-title" value="Topic title">
+<input type="hidden" name="search-result-no-topics-found" value="No topics found.">
+<input type="hidden" name="search-result-topics-found" value="%s topic(s) found:">
+<input type="hidden" name="help-index-no-entry" value="To locate information about this keyword, please select one of the subentries in the list.">
+<div id="tabs">
+  <ul>
+    <li><a href="#tab-toc">Contents</a></li>
+    <li><a href="#tab-search">Search</a></li>
+  </ul>
+  <div id="tab-toc">
+    <div id="toc-tree">
+      <ul>
+        <li data="addClass: 'folder-star'" title="ASG" id="wh-context-10"><a href="topics/idh-topic10.htm" target="topic">ASG</a>
+          <ul>
+            <li data="icon: '1.gif'" title="Login" id="wh-context-20"><a href="topics/idh-topic20.htm" target="topic">Login</a></li>
+            <li data="addClass: 'book'" title="Admin" id="wh-context-30"><a href="topics/idh-topic30.htm" target="topic">Admin</a>
+              <ul>
+                <li data="icon: '1.gif'" title="Admin Dashboard" id="wh-context-40"><a href="topics/idh-topic40.htm" target="topic">Admin Dashboard</a></li>
+                <li data="icon: '1.gif'" title="Weather Map" id="wh-context-50"><a href="topics/idh-topic50.htm" target="topic">Weather Map</a></li>
+                <li data="icon: '1.gif'" title="Accounts" id="wh-context-190"><a href="topics/idh-topic190.htm" target="topic">Accounts</a></li>
+                <li data="icon: '1.gif'" title="Create Accounts" id="wh-context-200"><a href="topics/idh-topic200.htm" target="topic">Create Accounts</a></li>
+              </ul></li>
+            <li data="addClass: 'book'" title="Extension" id="wh-context-70"><a href="topics/idh-topic70.htm" target="topic">Extension</a>
+              <ul>
+                <li data="icon: '1.gif'" title="Extension Dash Board" id="wh-context-80"><a href="topics/idh-topic80.htm" target="topic">Extension Dash Board</a></li>
+                <li data="icon: '1.gif'" title="Weather Map" id="wh-context-90"><a href="topics/idh-topic90.htm" target="topic">Weather Map</a></li>
+                <li data="icon: '1.gif'" title="Farmers" id="wh-context-100"><a href="topics/idh-topic100.htm" target="topic">Farmers</a></li>
+                <li data="icon: '1.gif'" title="Harvest Record" id="wh-context-150"><a href="topics/idh-topic150.htm" target="topic">Harvest Record</a></li>
+                <li data="icon: '1.gif'" title="Plant Record" id="wh-context-160"><a href="topics/idh-topic160.htm" target="topic">Plant Record</a></li>
+                <li data="icon: '1.gif'" title="Plant Recommendation" id="wh-context-180"><a href="topics/idh-topic180.htm" target="topic">Plant Recommendation</a></li>
+              </ul></li>
+            <li data="addClass: 'book'" title="Users" id="wh-context-110"><a href="topics/idh-topic110.htm" target="topic">Users</a>
+              <ul>
+                <li data="icon: '1.gif'" title="Weather Map" id="wh-context-130"><a href="topics/idh-topic130.htm" target="topic">Weather Map</a></li>
+                <li data="icon: '1.gif'" title="National Yield Prediction" id="wh-context-140"><a href="topics/idh-topic140.htm" target="topic">National Yield Prediction</a></li>
+              </ul></li>
+          </ul></li>
+      </ul>
+    </div>
+  </div>
+  <div id="tab-search">
+    <form id="search-form"><label for="squery" class="sfield-title"><span class="text-label">Enter your search term:</span></label>
+      <div id="search-box">
+        <input type="text" id="squery" name="squery">
+        <input type="submit" id="search-button" value="Search">
+      </div>
+      <div id="options-box"><span class="text-label">Match:</span>
+        <input type="radio" id="anywords" name="match" value="anywords" checked="checked"><label for="anywords" class="text-label">Any words</label>
+        <input type="radio" id="phrase" name="match" value="phrase"><label for="phrase" class="text-label">Phrase</label>
+      </div>
+    </form>
+    <div id="search-result"></div>
+  </div>
+</div>
+</body>
+</html>

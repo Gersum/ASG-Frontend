@@ -75,6 +75,7 @@ import { SoybeanPredictionComponent } from 'src/app/ml/soybean-prediction/soybea
 import { ChartsModule } from 'ng2-charts';
 import { NguCarouselModule } from '@ngu/carousel';
 //import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { Subscriber } from './../../model/subscriber.model';
 
 
 @NgModule({
@@ -90,10 +91,11 @@ import { NguCarouselModule } from '@ngu/carousel';
    RegisterComponent,
    ProfileComponent,
 
-    SubscribersComponent,
+    
     SubcreateComponent,
     SubeditComponent,
     SublistComponent,
+  
 
     CroplistComponent,
     CropeditComponent,
@@ -129,6 +131,7 @@ import { NguCarouselModule } from '@ngu/carousel';
     MaizePredictionComponent,
     PeaPredictionComponent,
     SoybeanPredictionComponent,
+    SubscribersComponent
      ],
   imports: [
  

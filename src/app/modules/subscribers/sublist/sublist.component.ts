@@ -36,10 +36,12 @@ export class SublistComponent implements OnInit {
   }
 
   editSubscriber(id){
+    
       this.router.navigate([`/subedit/${id}`]);      
   }
 
   deleteSubscriber(id){
+     if (confirm("Are you sure you want to delete?"))
     this.subscriberService.delete(id).subscribe(()=>{
         this.fetchSubscribers();
     })

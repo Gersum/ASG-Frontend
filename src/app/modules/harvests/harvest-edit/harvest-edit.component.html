@@ -1,55 +1,55 @@
 <div>
     <br>
-    <mat-card>
-    <section class="mat-typography">
-       <h3>Update Harvest Record</h3>
-    </section>
-    <mat-divider></mat-divider>
-    </mat-card>
-    <br>
-    <form [formGroup]="updateForm" class="edit-form">
-        <mat-form-field class="field-full-width"> 
-            <input matInput placeholder ="farmer" formControlName="farmer" #farmer>
-        </mat-form-field> 
-        <mat-form-field class="field-full-width"> 
-            <input matInput placeholder ="crop" formControlName="crop" #crop>
-        </mat-form-field> 
-        <mat-form-field class="field-full-width"> 
-            <input matInput placeholder ="operation" formControlName="operation" #operation>
-        </mat-form-field> 
-         
-        <mat-form-field class="field-full-width"> 
-            <input matInput placeholder ="quantity" formControlName="quantity" #quantity>
-        </mat-form-field> 
-
-        <mat-form-field class="field-full-width"> 
-            <input matInput placeholder ="quality" formControlName="quality" #quality>
-        </mat-form-field>
-        <!-- <mat-form-field class="field-full-width"> 
-            <input matInput placeholder ="password" formControlName="password" #password>
-        </mat-form-field>  -->
-        <!-- <mat-form-field class="field-full-width-selector" > 
-                <mat-select placeholder="Role" formControlName="roles" class="mat-selector" #roles> -->
-                 
-                <!-- <mat-option value ="admin">Administrator</mat-option>
-                <mat-option value ="moderator">Plant-Expert</mat-option>
-                <mat-option value ="user">Extention-Worker</mat-option>
-            </mat-select>
-             </mat-form-field> -->
-              &nbsp;&nbsp; 
-             <!-- <mat-form-field class="field-full-width-selector" > 
-                <mat-select placeholder="Status" formControlName="status" class="mat-selector" #status>
-                    <mat-option value ="Open">Open</mat-option>
-                    <mat-option value ="Progress">Progress</mat-option>
-                    <mat-option value ="Done">Done</mat-option>
+    <mat-card style="width: 50%;">
+        <mat-card-header>
+            <section class="mat-typography">
+                <h3>Update Harvest Record</h3>
+            </section>
+        </mat-card-header>     
+        <mat-divider></mat-divider>     
+        <br>
+        <form [formGroup]="updateForm" class="edit-form">
+            <mat-form-field > 
+                <input style="width: 50%;" matInput placeholder ="farmer" formControlName="farmer" #farmer>
+            </mat-form-field> 
+           &nbsp;&nbsp;&nbsp;&nbsp; <mat-form-field > 
+                <input style="width: 50%;" matInput placeholder ="crop" formControlName="crop" #crop>
+            </mat-form-field> 
+            &nbsp;&nbsp;&nbsp;&nbsp; <mat-form-field > 
+                <input style="width: 50%;" matInput placeholder ="operation" formControlName="operation" #operation>
+            </mat-form-field> 
+            <mat-form-field> 
+                <input style="width: 50%;" matInput placeholder ="quantity" formControlName="quantity" #quantity>
+            </mat-form-field> 
+            &nbsp;&nbsp;&nbsp;&nbsp;<mat-form-field > 
+                <input matInput placeholder ="quality" formControlName="quality" #quality>
+            </mat-form-field>
+            <!-- <mat-form-field class="field-full-width"> 
+                <input matInput placeholder ="password" formControlName="password" #password>
+            </mat-form-field>  -->
+            <!-- <mat-form-field class="field-full-width-selector" > 
+                    <mat-select placeholder="Role" formControlName="roles" class="mat-selector" #roles> -->
+                    
+                    <!-- <mat-option value ="admin">Administrator</mat-option>
+                    <mat-option value ="moderator">Plant-Expert</mat-option>
+                    <mat-option value ="user">Extention-Worker</mat-option>
                 </mat-select>
-                 </mat-form-field> 
-                -->
-             <mat-divider></mat-divider>
-             <br><br>
-             <button mat-raised-button color="accent" routerLink="/harvestlist">Back</button>&nbsp;
-              <button type="submit" (click)="updateHarvest(farmer.value,crop.value,operation.value,quantity.value,quality.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary" >Save</button>
-            
+                </mat-form-field> -->
+                &nbsp;&nbsp; 
+                <!-- <mat-form-field class="field-full-width-selector" > 
+                    <mat-select placeholder="Status" formControlName="status" class="mat-selector" #status>
+                        <mat-option value ="Open">Open</mat-option>
+                        <mat-option value ="Progress">Progress</mat-option>
+                        <mat-option value ="Done">Done</mat-option>
+                    </mat-select>
+                    </mat-form-field> 
+                    -->
+                <mat-divider></mat-divider>
+                <br><br>
+                <button mat-raised-button color="accent" routerLink="/harvestlist">Back</button>&nbsp;
+                <button type="submit" (click)="updateHarvest(farmer.value,crop.value,operation.value,quantity.value,quality.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary" >Save</button>
+                
         </form>
-    </div>
+   </mat-card>
+</div>
     

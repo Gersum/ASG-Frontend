@@ -26,12 +26,12 @@ export class CropRecommendationComponent implements OnInit {
  wrongEval:number=0;
  example={altitude:23.3,temperature:56.3,rainfall:6.3,humidity:76};
  prediction: any;
- epochs:number=230;
+ epochs:number=350;
  constructor(private httpClient:HttpClient){}
  ngOnInit() {
   
-}
 
+}
 
  onCreateModel() {
    this.model=tf.sequential();
@@ -110,8 +110,6 @@ export class CropRecommendationComponent implements OnInit {
          }
        }
      })
-
-     
 
  }
 

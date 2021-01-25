@@ -7,8 +7,8 @@
       <div class="card-body">
         <ul class="nav nav-pills" id="btn">
           <!-- <li> <button mat-raised-button (click)="onCreateModel()" color="primary" >create Model</button></li>&nbsp; -->
-          <li> <button mat-raised-button (click)="onLoadData()" color="primary">Load Data</button></li> &nbsp;
-          <li> <button mat-raised-button (click)="onTrainModel()"color="primary">Train</button></li>&nbsp;
+          <li> <button mat-raised-button (click)="onLoadData()" color="primary"> (1) Load Data</button></li> &nbsp;
+          <li> <button mat-raised-button (click)="onTrainModel()"color="primary">(2) Train</button></li>&nbsp;
           <!-- <li> <button mat-raised-button (click)="onSaveModel()"color="primary">Save Model</button></li>&nbsp;
           <li> <button mat-raised-button (click)="onLoadModel()"color="primary">Load Model</button></li>&nbsp; -->
           <!-- <li> <button mat-raised-button (click)="onEvalModel()"color="primary">Evaluate Model</button></li>&nbsp; -->
@@ -22,7 +22,8 @@
         <div class="row" style="margin-left:0mm">
           <div class="col-md-8">
             <br>
-            <mat-progress-bar mode="determinate" color="accent" value="{{currentEpoch}}" class = "tp-margin" ></mat-progress-bar>
+            <mat-progress-bar mode="determinate" color="primary" value="{{currentEpoch}}" class = "tp-margin" ></mat-progress-bar>
+           
             <!-- <progress-bar [progress]="currentEpoch" [color-degraded]="{'0': '#00cbcb',  '15': '#f9c3d3', '25': '#fd8c8e'}"></progress-bar> -->
           </div> 
          
@@ -30,7 +31,7 @@
           <div class="col-md-4">
           <p></p>
             <label>Loss: <strong>{{currentLoss}}</strong></label> &nbsp;
-            <label>Accuracy: <strong>{{currentAccuracy}}</strong></label> &nbsp;
+            <label>Accuracy: <strong>{{currentAccuracy}}</strong></label> <br>
             <label>Evaluation:<strong> {{100*correctEval/(correctEval+wrongEval)}} %</strong></label>
             
   
@@ -52,21 +53,21 @@
                    <form #f="ngForm" (ngSubmit)="onPredict(f.value)">
                     <div class="form-group">
                       <label class="control-label">Temperature:</label>
-                      <input class="form-control" type="text" name="altitude" ngModel="" [(ngModel)]="example.altitude">
+                      <input class="form-control" type="number" min="15" max="60" name="altitude" ngModel="" [(ngModel)]="example.altitude" pattern="^[0-9]{2}$.*">
                     </div>
                     <div class="form-group">
                       <label class="control-label">Humidity:</label>
-                      <input class="form-control" type="text" name="temperature" ngModel="" [(ngModel)]="example.temperature">
+                      <input class="form-control" type="number" min="45" max="80" name="temperature" ngModel="" [(ngModel)]="example.temperature">
                     </div>
                     <div class="form-group">
                       <label class="control-label">PH-value:</label>
-                      <input class="form-control" type="text" name="rainfall" ngModel="" [(ngModel)]="example.rainfall">
+                      <input class="form-control" type="number" min="5" max="12" name="rainfall" ngModel="" [(ngModel)]="example.rainfall">
                     </div>
                     <div class="form-group">
                       <label class="control-label">Rainfall:</label>
-                      <input class="form-control" type="text" name="humidity" ngModel="" [(ngModel)]="example.humidity">
+                      <input class="form-control" type="number" min="50" max="250" name="humidity" ngModel="" [(ngModel)]="example.humidity">
                     </div>
-                    <button type="submit">Predict</button>
+                    <button type="submit"  mat-raised-button  color="primary">(3) Predict</button>
                   </form>
                 </div>
               </div>
@@ -97,6 +98,7 @@
             </table>
           </div>
         </div>
+        
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@
       <h1>Planting Record Information</h1>
       <hr>
     </div>
-    <div class="form-group">
+    <div class="form-group" style="width: 33%;">
       <label for="operation">Farmer Name</label>
       <input
         class="form-control"
@@ -16,6 +16,8 @@
         name="farmer"
       />
     </div>
+
+    <mat-divider></mat-divider> <br>
 
 <div class="form-row">
     <div class="col-md-4 mb-3">
@@ -46,8 +48,9 @@
 
     <div class="col-md-4 mb-3">
       <div class="form-group">
-        <label for="quantity">Quantity</label>
+        <label for="quantity">Quantity (kg)</label>
         <input
+          type="number"
           class="form-control"
           id="quantity"
           required
@@ -105,6 +108,7 @@
       <div class="form-group">
         <label for="rainfall">Rainfall</label>
         <input
+        type="number"
           class="form-control"
           id="rainfall"
           required
@@ -115,8 +119,9 @@
     </div>
     <div class="col-md-4 mb-3">
       <div class="form-group">
-        <label for="yearOfrelease">Year of release</label>
+        <label for="yearOfrelease">Date of release</label>
         <input
+         type="date"
           class="form-control"
           id="yearOfrelease"
           required
@@ -127,7 +132,7 @@
     </div>
     <div class="col-md-4 mb-3">
       <div class="form-group">
-        <label for="seedRate">Seed rate</label>
+        <label for="seedRate">Seed Rate</label>
         <input
           class="form-control"
           id="seedRate"
@@ -143,26 +148,31 @@
     <div class="col-md-4 mb-3">
     <div class="form-group">
       <label for="additionalInfo">Additional Information</label>
-      <input
+      <textarea
+      
         class="form-control"
         id="additionalInfo"
         required
         [(ngModel)]="plant.additionalInfo"
         name="additionalInfo"
-      />
+      >
+    </textarea>
     </div>
   </div>
     
 </div>   
  
-        
+        <div style="padding-left: 25%;" >
     
-        <button (click)="savePlant()" class="btn btn-success">Submit</button>
+        <button (click)="savePlant()" class="btn btn-success" style="width: 30%;" routerLink = "/plantlist" >Submit</button>
+        &nbsp;&nbsp;
+        <button  class="btn btn-primary" style="width: 30%;" routerLink = "/plantlist" > Back</button>
+      </div>
       </div>
     
       <div *ngIf="submitted">
         <h4>You submitted successfully!</h4>
-        <button class="btn btn-success" (click)="newPlant()">Add New Plant</button> 
+        <button class="btn btn-success" (click)="newPlant()"  >Add New Plant</button> 
         &nbsp;&nbsp;
         <button class="btn btn-primary" routerLink = "/plantlist">Back to lists</button>
       </div>

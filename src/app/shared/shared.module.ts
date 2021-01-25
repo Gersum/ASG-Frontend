@@ -17,10 +17,12 @@ import { AreaComponent } from './widget/area/area.component';
 import {HighchartsChartModule } from 'highcharts-angular';
 import { CardComponent } from './widget/card/card.component';
 import { PieComponent } from './widget/pie/pie.component';
+import { PieExComponent } from './widget/pieEx/PieEx.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from '../app-routing.module';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { NguCarouselModule } from '@ngu/carousel';
+//import { SubscribersComponent } from '../modules/subscribers/subscribers.component';
 
 
 
@@ -34,10 +36,13 @@ import { NguCarouselModule } from '@ngu/carousel';
     AreaComponent,
     CardComponent,
     PieComponent,
+    PieExComponent,
+   // SubscribersComponent
     
   ],
   imports: [
   
+
     CommonModule,
     MatDividerModule,
     MatToolbarModule,
@@ -64,6 +69,8 @@ import { NguCarouselModule } from '@ngu/carousel';
     AreaComponent,
     CardComponent,
     PieComponent,
+    PieExComponent,
+   
   ],
 
   

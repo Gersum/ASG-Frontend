@@ -40,6 +40,7 @@ export class PlantListComponent implements OnInit {
     }
   
     deletePlant(id){
+      if (confirm("Are you sure you want to delete?"))
       this.plantService.delete(id).subscribe(()=>{
           this.fetchPlants();
       })

@@ -42,14 +42,12 @@ export class SidebarComponent implements OnInit {
       this.username = user.username;
     }
   }
-
   
   logout() {
     this.tokenStorageService.signOut();
     window.location.reload();
   }
 
- 
   dashboardPage(){
     this.router.navigate([`/dashboard`]);      
       

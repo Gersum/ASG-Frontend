@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter,Input } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {faBars,faCog,faQuestionCircle,faUser,faSignOutAlt, faCloudRain } from '@fortawesome/free-solid-svg-icons/';
+import {faBars,faCog,faQuestionCircle,faUser,faSignOutAlt, faCloudRain, faLock } from '@fortawesome/free-solid-svg-icons/';
 import { TokenStorageService } from '../../../_services/token-storage.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   faUser=faUser;
   faSignOutAlt=faSignOutAlt;
   faQuestionCircle=faQuestionCircle;
+  faLock=faLock;
   //faCloudRain=faCloudRain;
 
   private roles: string[];

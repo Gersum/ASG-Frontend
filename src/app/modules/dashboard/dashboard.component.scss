@@ -4,9 +4,9 @@
     }
   }
   
-  table {
-    width: 140%;
-  }
+  // table {
+  //   width: 160%;
+  // }
 
   th.mat-sort-header-sorted {
     color: black;
@@ -16,5 +16,16 @@
     background-color: rgb(216, 215, 215);
     color: rgb(24, 24, 23);
     font-size: 1rem;
-    width: 140%;
+    width: 160%;
+}
+
+#divChart
+{
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+td{
+  font-size: 16px;
 }

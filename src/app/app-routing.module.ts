@@ -1,5 +1,5 @@
 import { NgModule, Component } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { DefaultComponent } from './layouts/default/default.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 //import { PostsComponent } from './modules/posts/posts.component';
@@ -28,7 +28,7 @@ import { SorghumPredictionComponent } from './ml/sorghum-prediction/sorghum-pred
 import { MaizePredictionComponent } from './ml/maize-prediction/maize-prediction.component';
 import { SoybeanPredictionComponent } from './ml/soybean-prediction/soybean-prediction.component';
 import { PeaPredictionComponent } from './ml/pea-prediction/pea-prediction.component';
-
+import {RouteGuardGuard} from '../app/_helpers/route-guard.guard'
 //import {HttpClient} from '@angular/common/http'
 
 
@@ -43,127 +43,127 @@ const routes: Routes = [
     component: DefaultComponent,
     children: [{
       path: 'dashboard',
-      component: DashboardComponent
+      component: DashboardComponent,canActivate:[RouteGuardGuard]
     },
    
     {
       path: 'home',
-      component: HomeComponent,
+      component: HomeComponent, canActivate:[RouteGuardGuard]
     },
     {
       path: 'register',
-      component: RegisterComponent
+      component: RegisterComponent , canActivate:[RouteGuardGuard]
       ,
     },
     {
       path: 'profile',
       component: ProfileComponent
-      ,
+      , canActivate:[RouteGuardGuard]
     },
 
     {
       path: 'create',
-      component: CreateComponent,
+      component: CreateComponent, canActivate:[RouteGuardGuard]
     },
     {
       path: 'edit/:id',
-      component: EditComponent,
+      component: EditComponent,  canActivate:[RouteGuardGuard]
     },
 
     {
       path: 'list',
-      component: ListComponent,
+      component: ListComponent, canActivate:[RouteGuardGuard]
     },
 
     {
       path: 'subcreate',
-      component: SubcreateComponent,
+      component: SubcreateComponent, canActivate:[RouteGuardGuard]
     },
 
     {
       path: 'sublist',
-      component: SublistComponent,
+      component: SublistComponent, canActivate:[RouteGuardGuard]
     },
 
     {
       path: 'subedit/:id',
-      component: SubeditComponent,
+      component: SubeditComponent, canActivate:[RouteGuardGuard]
     },
     
     {
       path: 'farmlocationcreate/:id',
-      component: FarmLocationCreateComponent,
+      component: FarmLocationCreateComponent, canActivate:[RouteGuardGuard]
     },
 
     {
       path: 'harvestcreate',
-      component: HarvestCreateComponent,
+      component: HarvestCreateComponent, canActivate:[RouteGuardGuard]
     },
 
     {
       path: 'harvestedit/:id',
-      component: HarvestEditComponent,
+      component: HarvestEditComponent, canActivate:[RouteGuardGuard]
     },
 
     {
       path: 'harvestlist',
-      component: HarvestListComponent,
+      component: HarvestListComponent, canActivate:[RouteGuardGuard]
     },
     
     {
       path: 'plantcreate',
-      component: PlantCreateComponent,
+      component: PlantCreateComponent, canActivate:[RouteGuardGuard]
     },
     {
       path: 'plantedit/:id',
-      component: PlantEditComponent,
+      component: PlantEditComponent, canActivate:[RouteGuardGuard]
     },
 
     {
       path: 'plantlist',
-      component: PlantListComponent,
+      component: PlantListComponent, canActivate:[RouteGuardGuard]
     },
          
     {
       path: 'prediction',
-      component:YeildPredictionComponent,
+      component:YeildPredictionComponent, canActivate:[RouteGuardGuard]
     //CropRecommendationComponent,
     },
 
     {
       path: 'recommendation',
-      component:CropRecommendationComponent,
+      component:CropRecommendationComponent, canActivate:[RouteGuardGuard]
     },
 
     
     {
       path: 'weather',
-      component:WeatherMapComponent,
+      component:WeatherMapComponent, canActivate:[RouteGuardGuard]
     },
 
     {
       path: 'wheat',
-      component:WeatPredictionComponent,
+      component:WeatPredictionComponent, canActivate:[RouteGuardGuard]
     },
 
     {
       path: 'sorghum',
-      component:SorghumPredictionComponent,
+      component:SorghumPredictionComponent, canActivate:[RouteGuardGuard]
     },
         
     {
       path: 'maize',
-      component:MaizePredictionComponent,
+      component:MaizePredictionComponent, canActivate:[RouteGuardGuard]
     },
 
     {
       path: 'soybean',
-      component:SoybeanPredictionComponent,
+      component:SoybeanPredictionComponent, canActivate:[RouteGuardGuard]
     },
 
     {
       path: 'pea',
-      component:PeaPredictionComponent,
+      component:PeaPredictionComponent, canActivate:[RouteGuardGuard]
     },
          
 

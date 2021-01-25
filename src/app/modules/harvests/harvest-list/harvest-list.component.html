@@ -1,8 +1,4 @@
-
-
-
-
-<!-- ///////////////////////////////////////////////// -->
+<!-- 
 <div>
     <br>
     <mat-card>
@@ -19,19 +15,16 @@
         <div class="mat-elevation-z8">
             <table  mat-table [dataSource]="harvests" matSort class="mat-elevation-z8">
   
-                <!-- Name Column -->
                 <ng-container matColumnDef="farmer">
                     <th mat-header-cell *matHeaderCellDef > Farmer Name </th>
                     <td mat-cell *matCellDef="let element"> {{element.farmer}} </td>
                 </ng-container>
   
-                <!-- Email Column -->
                 <ng-container matColumnDef="crop">
                     <th mat-header-cell *matHeaderCellDef > Crop </th>
                     <td mat-cell *matCellDef="let element"> {{element.crop}} </td>
                 </ng-container>
   
-                <!-- Phone Column -->
                 <ng-container matColumnDef="operation">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header text>Operation</th>
                     <td mat-cell *matCellDef="let element"> {{element.operation}} </td>
@@ -47,17 +40,10 @@
                     <td mat-cell *matCellDef="let object "> {{object.quality}} </td>
                 </ng-container> 
   
-                <!-- Status Column -->
-                <!-- <ng-container matColumnDef="roles">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
-                    <td mat-cell *matCellDef="let element"> {{element.roles[0].name}} </td>
-                    
-                </ng-container> -->
-
+            
                 <ng-container matColumnDef="actions">
                     <th mat-header-cell *matHeaderCellDef>Actions</th>
                     <td mat-cell *matCellDef = "let element">
-                        <!-- <button routerLink = "/farmlocationcreate" mat-button color="primary"  (click) ="addSubLoc(element._id)">+Location</button> -->
                         <button routerLink = "/harvestedit" mat-button color="primary"  (click) ="editHarvest(element.id)">Edit</button>
                         <button mat-button color="warn"    (click) ="deleteHarvest(element.id)">Delete</button>
                     </td>
@@ -75,12 +61,6 @@
 
 </div>
 
-
-
-
-
-
-<!-- 
 <div id="login-box">
     <div class="left">
       <h1>Sign up</h1>
@@ -102,3 +82,115 @@
     </div>
     <div class="or">OR</div>
   </div> -->
+
+
+  <!-- 
+
+
+<div>
+    <br>
+    <mat-card>
+        <button mat-raised-button color="primary" routerLink = "/subcreate" >ADD NEW FARMER</button>
+     <mat-divider></mat-divider>
+     <br>
+      
+   </mat-card>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+    
+    <div fxFlex="100">
+        <div class="mat-elevation-z8">
+            <table  mat-table [dataSource]="subscribers" matSort class="mat-elevation-z8">
+  
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef > farmername </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+  
+                <ng-container matColumnDef="city">
+                    <th mat-header-cell *matHeaderCellDef > City </th>
+                    <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+                </ng-container>
+  
+                <ng-container matColumnDef="phone">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header text> Phone</th>
+                    <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+                </ng-container> 
+
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef = "let element">
+                        <button routerLink = "/subedit" mat-button color="primary"  (click) ="editSubscriber(element._id)">Edit</button>
+                        <button mat-button color="warn"    (click) ="deleteSubscriber(element._id)">Delete</button>
+                    </td>
+                </ng-container>
+  
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+               
+            </table>
+  
+           
+        </div>
+  
+    </div>
+
+</div>
+ -->
+
+
+ 
+<div class="card" style="width: 15%; margin-bottom: 1%;">
+
+    <button mat-raised-button color="primary" routerLink = "/harvestcreate" >+ New Harvest</button>      
+</div>
+
+    <div class="card" style="width: 85%; box-shadow: 0  5px 6px 0 rgba(0,0,0,0.2);  position:absolute; left:25px; "  >
+           
+            <table style="width: 100%;"  mat-table [dataSource]="harvests" matSort>
+
+                <ng-container matColumnDef="farmer">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 17px;font-weight: bold; color: black;"> Farmer Name </th>
+                    <td mat-cell *matCellDef="let element" style="font-size: 16px;"> {{element.farmer}} </td>
+                </ng-container>
+  
+                <ng-container matColumnDef="crop">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 17px;font-weight: bold; color: black;"> Crop </th>
+                    <td mat-cell *matCellDef="let element" style="font-size: 16px;"> {{element.crop}} </td>
+                </ng-container>
+  
+                <ng-container matColumnDef="operation">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 17px;font-weight: bold; color: black;">Operation</th>
+                    <td mat-cell *matCellDef="let element" style="font-size: 16px;"> {{element.operation}} </td>
+                </ng-container> 
+
+                <ng-container matColumnDef="quantity">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 17px;font-weight: bold; color: black;"> Quantity</th>
+                    <td mat-cell *matCellDef="let object " style="font-size: 16px;"> {{object.quantity}} </td>
+                </ng-container> 
+
+                <ng-container matColumnDef="quality">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 17px;font-weight: bold; color: black;"> Quality</th>
+                    <td mat-cell *matCellDef="let object " style="font-size: 16px;"> {{object.quality}} </td>
+                </ng-container> 
+  
+            
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 17px;font-weight: bold; color: black;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Actions</th>
+                    <td mat-cell *matCellDef = "let element">
+                        <button routerLink = "/harvestedit" mat-button color="primary"  (click) ="editHarvest(element.id)">Edit</button>
+                        <button mat-button color="warn"    (click) ="deleteHarvest(element.id)">Delete</button>
+                    </td>
+                </ng-container>
+  
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+               
+            </table>
+            <mat-divider></mat-divider>
+            <mat-paginator [pageSizeOptions]="[10, 15, 20 ,25]"></mat-paginator> 
+           
+        </div>
+  

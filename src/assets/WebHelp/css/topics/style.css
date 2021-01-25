@@ -1,0 +1,241 @@
+p {
+  margin: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  text-indent: 0;
+  text-align: left;
+  line-height: normal;
+  font-family: 'Times New Roman';
+  font-size: 12pt;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+map > area {
+  outline: none;
+}
+.ts0 {
+  font-family: Tahoma;
+  color: Gray;
+  background-color: White;
+}
+.ts1 {
+  font-family: Tahoma;
+  color: Black;
+}
+.ts2 {
+  font-family: Tahoma;
+  font-weight: bold;
+  color: Black;
+}
+.ts3 {
+  font-weight: bold;
+}
+.ts4 {
+  font-family: Tahoma;
+  font-weight: bold;
+}
+.ts5 {
+  font-family: Tahoma;
+  font-size: 14pt;
+  font-weight: bold;
+}
+.ts6 {
+  font-family: Tahoma;
+}
+.ts7 {
+  font-family: Tahoma;
+  font-size: 11pt;
+}
+.ts8 {
+  font-family: 'Courier New';
+}
+.ts9 {
+  font-family: Tahoma;
+}
+.ts10 {
+  font-family: Tahoma;
+  color: Black;
+}
+.ts11 {
+  font-family: Tahoma;
+  font-weight: bold;
+}
+.ts12 {
+  font-family: Tahoma;
+}
+.ts13 {
+  font-family: Tahoma;
+  font-weight: bold;
+}
+.ts14 {
+  font-family: Tahoma;
+  font-size: 16pt;
+  font-weight: bold;
+}
+.ts15 {
+  font-family: Tahoma;
+}
+.ts16 {
+  font-family: Tahoma;
+}
+.ts17 {
+  font-family: Tahoma;
+  font-size: 14pt;
+}
+.ts18 {
+  font-family: Tahoma;
+  color: Black;
+}
+.ts19 {
+  font-family: Tahoma;
+  font-size: 14pt;
+  color: Black;
+}
+.ts20 {
+  font-family: Tahoma;
+  color: Black;
+}
+.ts21 {
+  font-family: Tahoma;
+}
+.hs0 {
+  font-family: Tahoma;
+  text-decoration: underline;
+  color: Gray;
+  background-color: White;
+}
+.ps0 {
+  text-align: center;
+}
+.ps1 {
+  text-align: center;
+  font-size: 10pt;
+}
+.ps2 {
+  font-size: 8pt;
+}
+.ps3 {
+  font-size: 10pt;
+}
+.ps4 {
+  font-size: 11pt;
+}
+.ps5 {
+  padding-top: 3px;
+  text-align: center;
+}
+.ps6 {
+  padding-top: 2px;
+}
+.ps7 {
+  padding-bottom: 2px;
+}
+.ps8 {
+  padding-left: 0.5in;
+  text-indent: -0.251968503937008in;
+}
+.hline0 {
+  width: 100%;
+  height: 1px;
+  margin: 8px auto;
+  background-color: Silver;
+  border-style: none;
+}
+.tbl0 {
+  width: 100%;
+  border-collapse: collapse;
+  border-top-style: dotted;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  border-top-width: 1px;
+  border-top-color: Silver;
+}
+.tbl0 > tbody > tr.row0 {
+  border-style: none;
+}
+.tbl0 > tbody > tr > td.cell0 {
+  width: 46px;
+  height: 46px;
+  vertical-align: top;
+  padding: 2px;
+  border-style: none;
+}
+.tbl0 > tbody > tr > td.cell1 {
+  vertical-align: middle;
+  padding: 2px;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: solid;
+  border-left-style: none;
+  border-bottom-width: 1px;
+  border-bottom-color: Gray;
+}
+.tbl0 > tbody > tr > td.cell2 {
+  vertical-align: top;
+  padding: 2px;
+  border-style: none;
+}
+.tbl0 > tbody > tr > td.cell3 {
+  vertical-align: middle;
+  padding: 2px;
+  border-style: none;
+}
+.tbl0 > tbody > tr > td.cell4 {
+  height: 42.75pt;
+  vertical-align: top;
+  padding: 2px;
+  border-style: none;
+}
+.tbl0 > tbody > tr > td.cell5 {
+  height: 42.75pt;
+  vertical-align: middle;
+  padding: 2px;
+  border-style: none;
+}
+.tbl1 {
+  width: 100%;
+  border-collapse: collapse;
+  border-top-style: dotted;
+  border-right-style: none;
+  border-bottom-style: dotted;
+  border-left-style: none;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-color: Silver;
+  border-bottom-color: Silver;
+}
+.tbl1 > tbody > tr.row0 {
+  border-style: none;
+}
+.tbl1 > tbody > tr > td.cell0 {
+  width: 46px;
+  height: 46px;
+  vertical-align: top;
+  padding: 2px;
+  border-style: none;
+}
+.tbl1 > tbody > tr > td.cell1 {
+  vertical-align: middle;
+  padding: 2px;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: solid;
+  border-left-style: none;
+  border-bottom-width: 1px;
+  border-bottom-color: Gray;
+}
+.tbl1 > tbody > tr > td.cell2 {
+  vertical-align: top;
+  padding: 2px;
+  border-style: none;
+}
+.tbl1 > tbody > tr > td.cell3 {
+  vertical-align: middle;
+  padding: 2px;
+  border-style: none;
+}

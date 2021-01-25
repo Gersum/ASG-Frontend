@@ -1,4 +1,4 @@
-
+<!-- 
 <mat-toolbar class="mat-tool-bar">
    
   <mat-toolbar-row >
@@ -6,24 +6,24 @@
          <img style="width: 100%; height: 20%; margin-top:1px;" src="assets\images\asgggg2.png" alt=""> 
       </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <button mat-icon-button (click)="toggleSideBar()">
-       <!--    <mat-icon>menu</mat-icon> -->
-       <fa-icon [icon]="faBars" style="color:white ;"></fa-icon>
-
-        </button>
+        <fa-icon [icon]="faBars" style="color:white ;"></fa-icon>
+      </button>
 
       <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
           <ul fxLayout="row" fxLayoutGap="20px" style="color: aliceblue;">
            
               <li>
                   <button mat-icon-button>
-               <!--        <mat-icon>settings</mat-icon> -->
-               <fa-icon [icon]="faCog"></fa-icon>
+
+
+                    <fa-icon [icon]="faCog"></fa-icon>
                   </button>
               </li>
               <li>
                   <button mat-icon-button>
-                 <!--      <mat-icon>help_outline</mat-icon> -->
-                 <fa-icon [icon]="faQuestionCircle"></fa-icon>
+
+
+                    <fa-icon [icon]="faQuestionCircle"></fa-icon>
                   </button>
               </li>
 
@@ -33,19 +33,13 @@
 
               <li>
                   <button mat-button [matMenuTriggerFor]="menu">
-                  <!-- <mat-icon>person_outline</mat-icon>-->
-                   <fa-icon [icon]="faUser"></fa-icon>
+
+                    <fa-icon [icon]="faUser"></fa-icon>
                    
                   </button>
-
-                  <!-- <button mat-button [matMenuTriggerFor]="menu"> -->
-                    <!-- <mat-icon>person_outline</mat-icon>-->
-                     <!-- <fa-icon [icon]="faCloudRain"></fa-icon> -->
-                     
-                    <!-- </button> -->
+                
                   <mat-menu #menu="matMenu">
                       <button mat-menu-item (click)="logout()" routerLink="/login">
-                   <!--        <mat-icon>exit_to_app</mat-icon> -->
                            
                           <fa-icon [icon]="faSignOutAlt"></fa-icon> Sign out
                       </button>
@@ -56,4 +50,28 @@
           
       </div>
   </mat-toolbar-row>
-</mat-toolbar>
+</mat-toolbar> -->
+
+<header class="header-outer">
+	<div class="header-inner">
+      <div style="padding-left: 5%;">
+        <img src="assets\images\asgggg2.png" />
+      </div>
+      <button mat-icon-button (click)="toggleSideBar()">
+        &nbsp;&nbsp;<fa-icon [icon]="faBars" style="color:rgb(191, 243, 176) ;"></fa-icon>
+      </button>
+        <div class="header-content responsive-wrapper" >
+          <button mat-button routerLink="/home" style="position: absolute; right: 100px;">
+            <fa-icon size="lg" [icon]="faQuestionCircle" style="color:rgb(191, 243, 176) ;"></fa-icon>
+           </button>
+
+          <nav class="header-navigation" style="position: absolute; right: 60px; top: 25px; ">
+            <h3 style="color: whitesmoke;">{{ username }}</h3>
+          </nav>
+          <button mat-button (click)="logout()" routerLink="/login" style="position: absolute; right: 5px;">
+            <fa-icon size="lg" [icon]="faSignOutAlt" style="color:rgb(191, 243, 176) ;"></fa-icon>
+          </button>
+          
+        </div>
+	</div>
+</header>

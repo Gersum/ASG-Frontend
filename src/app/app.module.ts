@@ -6,25 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultModule } from './layouts/default/default.module';
-
-
-
-
-
+//import { SharedwidgetpieExComponent } from './sharedwidgetpie-ex/sharedwidgetpie-ex.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-   
-    
-   
-   
-    
-    
-    
-    
-    
+   // SharedwidgetpieExComponent,
     
   ],
   imports: [

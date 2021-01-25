@@ -4,12 +4,16 @@ import { WeatherService } from '../../../_services/weather.service';
 import {MapPoint} from '../../../model/map-point.model';
 import {DEFAULT_LATITUDE, DEFAULT_LONGITUDE} from '../../../model/app.constants';
 import * as L from "leaflet";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import * as moment from "moment";
+
 
 @Component({
   selector: 'app-weather-map',
   templateUrl: './weather-map.component.html',
   styleUrls: ['./weather-map.component.scss']
 })
+
 export class WeatherMapComponent implements OnInit {
   lat :any;
   lon:any;
@@ -96,9 +100,6 @@ export class WeatherMapComponent implements OnInit {
        }
      }
   
- 
-
- 
 
   private initializeMapOptions () {
     this.options = {
@@ -130,19 +131,15 @@ export class WeatherMapComponent implements OnInit {
         this.weatherService.getWeatherDataByCoords(this.lat,this.lon).subscribe(data=>{
           this.weather = data;
         
-
         })
-
 
         this.weatherService.getfivedayWeatherDataByCoords(this.lat,this.lon).subscribe(data=>{
           this.forcast = data;
         
 
          })
-    
   }
 
-  
   getCity(city: string){
     this.weatherService.getWeatherDataByCityName(city).subscribe((data:any)=>{
      this.weather = data;
@@ -150,7 +147,7 @@ export class WeatherMapComponent implements OnInit {
       this.lat = data.coord.lat;
     this.lon=data.coord.lon;
    })
-}
+  }
 
   private updateMapPoint (latitude: number, longitude: number, name?: string) {
     this.mapPoint = {
@@ -167,7 +164,6 @@ export class WeatherMapComponent implements OnInit {
     this.lastLayer = marker(coordinates).setIcon(mapIcon).addTo(this.map);
     this.map.setView(coordinates, this.map.getZoom());
   }
-  
 
   private getDefaultIcon () {
     return icon({

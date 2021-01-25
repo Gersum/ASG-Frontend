@@ -61,6 +61,7 @@ export class ListComponent implements OnInit {
   }
 
   deleteIssue(id){
+    if (confirm("Are you sure you want to delete?"))
     this.issueService.deleteIssue(id).subscribe(()=>{
         this.fetchIssues();
     })

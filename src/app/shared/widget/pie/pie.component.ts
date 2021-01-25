@@ -15,8 +15,6 @@ import * as ChartLabel from 'chartjs-plugin-datalabels';
 })
 export class PieComponent implements OnInit {
 
- 
-  
   userCount: any;
   chartData: Charts[] = [];
 
@@ -24,13 +22,20 @@ export class PieComponent implements OnInit {
 
   public pieChartOptions: ChartOptions = {
     responsive: true,
-    legend: {
-      position: 'top',
-     
-       // display: true,
-        
-            
+    tooltips:
+    {
+      titleFontSize: 16,
+      bodyFontSize: 16
     },
+    legend: {
+      position: 'top', 
+      labels: {
+        fontColor: 'black',
+        fontSize: 19
+      }    
+       // display: true,
+    },
+
     plugins: {
       datalabels: {
         formatter: (value, ctx) => {
@@ -47,11 +52,6 @@ export class PieComponent implements OnInit {
   public  pieChartPlugins = [ChartLabel];
   public pieChartColors = [];
   
-  
-  
-
-
-
   constructor(private issueService :IssuesService) { }
 
   getChartData() {
@@ -79,9 +79,7 @@ export class PieComponent implements OnInit {
       console.log(err);
     });
   }
-
-
-  ngOnInit() {
+ngOnInit() {
     this.loadUserCount();
     this.getChartData();
   }

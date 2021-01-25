@@ -110,11 +110,11 @@ export class SubscriberService {
   getSpecificFarmersCount() {
     return this.http.get(`${this.url}/api/subscribers/specificfarmers/count/`);
   }
-
-  // findByTitle(title) {
-  //   return this.http.get(`${this.url}?title=${title}`);
-  // }
-
+  
+  getAllFarmersCount(){
+    return this.http.get(`${this.url}/api/subscribers/farmers/count/`);
+    
+  }
 
 }
    

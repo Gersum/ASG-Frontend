@@ -49,6 +49,7 @@ export class HarvestListComponent implements OnInit {
     }
   
     deleteHarvest(id){
+      if (confirm("Are you sure you want to delete?"))
       this.harvestService.delete(id).subscribe(()=>{
           this.fetchHarvests();
       })
@@ -59,6 +60,7 @@ export class HarvestListComponent implements OnInit {
     }
 
     loadHarvestCount(){
+     
       this.harvestService.getHarvestCount().subscribe((harvests)=>{
         this.harvestCount = harvests[0].count;
       });

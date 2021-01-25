@@ -7,6 +7,7 @@
 <mat-divider></mat-divider>
 
 <br> -->
+
 <div *ngIf="!showUserBoard && !showModeratorBoard && !showSeederBoard">
     <h1>Admin Dashboard</h1>
     <hr>
@@ -22,50 +23,81 @@
     <hr>
 </div>
 <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
-    <mat-card fxFlex="25" *ngIf="!showUserBoard && !showModeratorBoard && !showSeederBoard" style="background-color: rgb(74, 116, 233);">
+    <mat-card fxFlex="25" *ngIf="!showUserBoard && !showModeratorBoard && !showSeederBoard" style="box-shadow: 0  5px 6px 0 rgba(0,0,0,0.2)">
         <app-widget-card label="Alimuni Users" > </app-widget-card>
         <div class="row">    
-            <fa-icon size="5x"  [icon]="faUsers " style="padding-left: 3%;"></fa-icon> 
-            <h1 style="padding-left: 50%; font-size: 4em;">{{userUserRoleCount}}</h1>
+            <fa-icon size="5x"  [icon]="faUsers " style="padding-left: 3%;color: #6eb672"></fa-icon> 
+            <h1 style="padding-left: 50%; font-size: 2em;font-weight: bold;">{{userUserRoleCount}}</h1>
         </div>
     </mat-card>
-    <mat-card fxFlex="25" *ngIf="!showUserBoard && !showModeratorBoard && !showSeederBoard" style="background-color: red;">
+    <mat-card fxFlex="25" *ngIf="!showUserBoard && !showModeratorBoard && !showSeederBoard" style=" box-shadow: 0  5px 6px 0 rgba(0,0,0,0.2)">
         <app-widget-card label="Admins" > </app-widget-card>
         <div class="row">    
-            <fa-icon size="5x"  [icon]="faUserSecret " style="padding-left: 3%;"></fa-icon> 
-            <h1 style="padding-left: 50%; font-size: 4em;">{{userAdminRoleCount}}</h1>
+            <fa-icon size="5x"  [icon]="faUserSecret " style="padding-left: 3%; color: #6eb672;"></fa-icon> 
+            <h1 style="padding-left: 50%; font-size: 2em;font-weight: bold;">{{userAdminRoleCount}}</h1>
         </div>
     </mat-card>
 
-    <mat-card fxFlex="25" *ngIf="!showUserBoard && !showModeratorBoard && !showSeederBoard" style="background-color: yellow;">
+    <mat-card fxFlex="25" *ngIf="!showUserBoard && !showModeratorBoard && !showSeederBoard" style="box-shadow: 0  5px 6px 0 rgba(0,0,0,0.2)">
         <app-widget-card label="Extension Workers" > </app-widget-card>
         <div class="row">    
-            <fa-icon size="5x"  [icon]="faUsers " style="padding-left: 3%;"></fa-icon> 
-            <h1 style="padding-left: 50%; font-size: 4em;">{{userExtentionRoleCount}}</h1>
+            <fa-icon size="5x"  [icon]="faUsers " style="padding-left: 3%; color: #6eb672;"></fa-icon> 
+            <h1 style="padding-left: 50%; font-size: 2em;font-weight: bold;">{{userExtentionRoleCount}}</h1>
         </div>
     </mat-card>
 
-    <mat-card fxFlex="25" *ngIf="!showUserBoard && !showModeratorBoard && !showSeederBoard" style="background-color: rgb(46, 172, 46);">
+    <mat-card fxFlex="25" *ngIf="!showUserBoard && !showModeratorBoard && !showSeederBoard" style="box-shadow: 0  5px 6px 0 rgba(0,0,0,0.2)">
         <app-widget-card label="Total Seed Expert" > </app-widget-card>
         <div class="row">    
-            <fa-icon size="5x"  [icon]="faSeedling " style="padding-left: 3%;"></fa-icon> 
-            <h1 style="padding-left: 50%; font-size: 4em;">{{userSeederRoleCount}}</h1>
+            <fa-icon size="5x"  [icon]="faSeedling " style="padding-left: 3%; color: #6eb672;"></fa-icon> 
+            <h1 style="padding-left: 50%; font-size: 2em;font-weight: bold;">{{userSeederRoleCount}}</h1>
         </div>
     </mat-card>
 
-    <mat-card fxFlex="25" *ngIf="!showAdminBoard && !showModeratorBoard && !showSeederBoard" style="background-color: rgb(46, 172, 46);">
-        <app-widget-card label="No. of Total Harvest" > </app-widget-card>
-        <div class="row">    
-            <fa-icon size="5x"  [icon]="faSeedling " style="padding-left: 3%;"></fa-icon> 
-            <h1 style="padding-left: 50%; font-size: 4em;">{{harvestCount}}</h1>
+    <mat-card fxFlex="25" *ngIf="!showAdminBoard && !showModeratorBoard && !showSeederBoard" style="box-shadow: 0  5px 6px 0 rgba(0,0,0,0.2)">
+        <app-widget-card label="Total Farmers" > </app-widget-card>
+        <div class="row">   
+            
+            <fa-icon size="5x"  [icon]="faSeedling " style="padding-left: 3%; color: #6eb672;"></fa-icon> 
+            <h1 style="padding-left: 50%; font-size: 2em;font-weight: bold;">{{harvestCount}}</h1>
         </div>
     </mat-card>
 
-    <mat-card fxFlex="25" *ngIf="!showAdminBoard && !showModeratorBoard && !showSeederBoard" style="background-color: yellow;">
-        <app-widget-card label="Total Harvest" > </app-widget-card>
+    <mat-card fxFlex="25" *ngIf="!showAdminBoard && !showModeratorBoard && !showSeederBoard" style="box-shadow: 0  5px 6px 0 rgba(0,0,0,0.2)">
+        <app-widget-card label=" Total Harvest" > </app-widget-card>
+        <div class="row">   
+            
+            
+            <fa-icon size="5x"  [icon]="faSeedling " style="padding-left: 3%; color: #6eb672"></fa-icon> 
+            <h1 style="padding-left: 25%;  font-size: 2em;font-weight: bold;">{{harvestCount}}</h1>
+        </div>
+    </mat-card>
+  
+    <mat-card fxFlex="25" *ngIf="!showAdminBoard && !showModeratorBoard && !showSeederBoard" style="box-shadow: 0  5px 6px 0 rgba(0,0,0,0.2)">
+        <app-widget-card label="Harvest (kg)" > </app-widget-card>
         <div class="row">    
-            <fa-icon size="5x"  [icon]="faSeedling " style="padding-left: 3%;"></fa-icon> 
-            <h1 style="padding-left: 50%; font-size: 4em;">{{harverstTotalQtySum}}</h1>
+            <fa-icon size="5x"  [icon]="faSeedling " style="padding-left: 3%; color: #6eb672"></fa-icon> 
+            <h1 style="padding-left: 25%; font-size: 2em;font-weight: bold;">{{harverstTotalQtySum}}</h1>
+        </div>
+    </mat-card>
+    
+    <mat-card fxFlex="25" *ngIf="!showAdminBoard && !showModeratorBoard && !showSeederBoard" style="box-shadow: 0  5px 6px 0 rgba(0,0,0,0.2)">
+        <app-widget-card label=" Plantation (kg)" > </app-widget-card>
+        <div class="row">   
+            
+            
+            <fa-icon size="5x"  [icon]="faSeedling " style="padding-left: 3%; color: #6eb672"></fa-icon> 
+            <h1 style="padding-left: 50%; font-size: 2em;font-weight: bold;">{{TotalPlantQuantity}}</h1>
+        </div>
+    </mat-card>
+
+    <mat-card fxFlex="25" *ngIf="!showAdminBoard && !showModeratorBoard && !showSeederBoard" style="box-shadow: 0  5px 6px 0 rgba(0,0,0,0.2)">
+        <app-widget-card label="Total Plantation" > </app-widget-card>
+        <div class="row">   
+            
+            
+            <fa-icon size="5x"  [icon]="faSeedling " style="padding-left: 3%; color: #6eb672"></fa-icon> 
+            <h1 style="padding-left: 50%; font-size: 2em; font-weight: bold;">{{TotalPlantCount}}</h1>
         </div>
     </mat-card>
 
@@ -73,106 +105,97 @@
 
    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards"  *ngIf="!showAdminBoard && !showUserBoard && !showSeederBoard">
 
-        <mat-card fxFlex="25" *ngIf="!showAdminBoard && !showUserBoard && !showSeederBoard" style="background-color: yellow;">
+        <mat-card style="box-shadow: 0 5px 6px 0 rgba(0,0,0,0.2) "  fxFlex="25" *ngIf="!showAdminBoard && !showUserBoard && !showSeederBoard">
             <app-widget-card label="My Farmers" > </app-widget-card>
             <div class="row">    
-                <fa-icon size="5x"  [icon]="faHatCowboy " style="padding-left: 3%;"></fa-icon> 
-                <h1 style="padding-left: 50%; font-size: 4em;">{{farmers}}</h1>
+                <fa-icon size="5x"  [icon]="faHatCowboy " style="padding-left: 3%; color: #6eb672;"></fa-icon> 
+                <h1 style="padding-left: 50%; font-size: 2em; font-weight: bold;">{{farmers}}</h1>
             </div>
         </mat-card>
 
-        <mat-card fxFlex="25" *ngIf="!showAdminBoard && !showUserBoard && !showSeederBoard" style="background-color: rgb(5, 151, 5);">
+        <mat-card style="box-shadow: 0  5px 6px 0 rgba(0,0,0,0.2) "  fxFlex="25" *ngIf="!showAdminBoard && !showUserBoard && !showSeederBoard" >
             <app-widget-card label="No. of Harvest" > </app-widget-card>
             <div class="row">    
-                <fa-icon size="5x"  [icon]="faSeedling " style="padding-left: 3%;"></fa-icon> 
-                <h1 style="padding-left: 50%; font-size: 4em;">{{ExtentionHarvestCount}}</h1>
+                <fa-icon size="5x"  [icon]="faSpa " style="padding-left: 3%; color: #6eb672;"></fa-icon> 
+                <h1 style="padding-left: 50%; font-size: 2em;font-weight: bold;">{{ExtentionHarvestCount}}</h1>
             </div>
         </mat-card>
 
-        <mat-card fxFlex="25" *ngIf="!showAdminBoard && !showUserBoard && !showSeederBoard" style="background-color: brown;">
+        <mat-card style="box-shadow: 0 5px 6px 0 rgba(0,0,0,0.2) "  fxFlex="25" *ngIf="!showAdminBoard && !showUserBoard && !showSeederBoard">
             <app-widget-card label="No. Plantation " > </app-widget-card>
             <div class="row">    
-                <fa-icon size="5x"  [icon]="faSeedling " style="padding-left: 3%;"></fa-icon> 
-                <h1 style="padding-left: 50%; font-size: 4em;">{{ExtentionPlantationCount}}</h1>
+                <fa-icon size="5x"  [icon]="faSeedling " style="padding-left: 3%; color: #6eb672; "></fa-icon> 
+                <h1 style="padding-left: 50%; font-size: 2em;font-weight: bold;">{{ExtentionPlantationCount}}</h1>
             </div>
         </mat-card>
 
-        <mat-card fxFlex="25" *ngIf="!showAdminBoard && !showUserBoard && !showSeederBoard" style="background-color: rgb(26, 114, 185);">
-            <app-widget-card label="Total Harvest " > </app-widget-card>
+        <mat-card style="box-shadow: 0  5px 6px 0 rgba(0,0,0,0.2) "  fxFlex="25" *ngIf="!showAdminBoard && !showUserBoard && !showSeederBoard" >
+            <app-widget-card label="Harvest (kg) " > </app-widget-card>
             <div class="row">    
-                <fa-icon size="5x"  [icon]="faSeedling " style="padding-left: 3%;"></fa-icon> 
-                <h1 style="padding-left: 30%; font-size: 4em;">{{ExtentionHarvestCountEach}}</h1>
+                <fa-icon size="5x"  [icon]="faWarehouse " style="padding-left: 3%; color: #6eb672;"></fa-icon> 
+                <h1 style="padding-left: 30%; font-size: 2em;font-weight: bold;">{{ExtentionHarvestCountEach}}</h1>
             </div>
         </mat-card>
 
-        <mat-card fxFlex="25" *ngIf="!showAdminBoard && !showUserBoard && !showSeederBoard" style="background-color: red;">
-            <app-widget-card label="Total Plantaion " > </app-widget-card>
+        <mat-card style="box-shadow: 0  5px 6px 0 rgba(0,0,0,0.2) "  fxFlex="25" *ngIf="!showAdminBoard && !showUserBoard && !showSeederBoard" >
+            <app-widget-card label="Plantaion(kg) " > </app-widget-card>
             <div class="row">    
-                <fa-icon size="5x"  [icon]="faSeedling " style="padding-left: 3%;"></fa-icon> 
-                <h1 style="padding-left: 30%; font-size: 4em;">{{ExtentionPlantCountEach}}</h1>
+                <fa-icon size="5x"  [icon]="faTractor " style="padding-left: 3%; color: #6eb672;"></fa-icon> 
+                <h1 style="padding-left: 30%; font-size: 2em;font-weight: bold;">{{ExtentionPlantCountEach}}</h1>
             </div>
         </mat-card>
 
   </div>
 
-
 <br>
 
 <mat-divider></mat-divider>
 
-<br>
+    <br>
 
-    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="5%">
-            
-            <div class="mat-elevation-z8">
-                <table  mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-    
-                    <!-- Name Column -->
-                    <ng-container matColumnDef="username">
-                        <th mat-header-cell *matHeaderCellDef  mat-sort-header> Username </th>
-                        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
-                    </ng-container>
-    
-                    <!-- Email Column -->
-                    <ng-container matColumnDef="email">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header > Email </th>
-                        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-                    </ng-container>
-    
-                
-    
-                    <!-- Roles Column -->
-                    <ng-container matColumnDef="roles">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
-                        <td mat-cell *matCellDef="let element"> {{element.roles[0].name}} </td>
-                        
-                    </ng-container>
 
-                    <!-- Date Column -->
-                    <ng-container matColumnDef="createdAt">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Created </th>
-                        <td mat-cell *matCellDef="let element"> {{element.createdAt| date : 'short'}} </td>
-                        
-                    </ng-container>
-
-                
     
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <div class="row"  >
+        <div class="card" style="width: 48%; box-shadow: 0  5px 6px 0 rgba(0,0,0,0.2);  position:absolute; left:25px; "  *ngIf=" !showModeratorBoard && !showSeederBoard" >
+               
+            <table style="width: 100%;"  mat-table [dataSource]="dataSource" matSort>
+
+                <ng-container matColumnDef="username">
+                    <th mat-header-cell *matHeaderCellDef  mat-sort-header style="font-size: 17px;font-weight: bold; color: black;"> Username </th>
+                    <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 17px;font-weight: bold; color: black;"> Email </th>
+                    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="roles">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 17px;font-weight: bold; color: black;"> Role </th>
+                    <td mat-cell *matCellDef="let element"> {{element.roles[0].name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="createdAt">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 17px;font-weight: bold; color: black;">Date Created </th>
+                    <td mat-cell *matCellDef="let element"> {{element.createdAt| date : 'short'}} </td>
                     
-                </table>
-                <mat-paginator  [length] = "50" [pageSizeOptions]="[5, 8, 10 ,20]"></mat-paginator>
-            
-            </div>
-          
-    
-            <div class="card" style="width: 40%;">
-                <app-widget-pie [data]="pieChart" style="height: 100%;width: 100%;"></app-widget-pie>
-            </div>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                
+            </table>
+            <mat-paginator style="width: 100%;" [length] = "50" [pageSizeOptions]="[6, 8, 10 ,20]"></mat-paginator>
+        </div>
+
+        <div class="card" style="width: 50%; box-shadow: 0  5px 6px 0 rgba(0,0,0,0.2) " *ngIf="!showUserBoard && !showAdminBoard && !showSeederBoard" >
+        <app-Subscribers  style="height: 100%;width: 100%; "></app-Subscribers>
+    </div> 
+        
+        <div class="card" style="width: 48%; position:absolute; right:25px;"  *ngIf=" !showSeederBoard">
+            <app-widget-pie [data]="pieChart" style="height: 100%;width: 100%;"></app-widget-pie>
+        </div>
 
     </div>
-
-
-<br>
-<br>
-<br>
+     
+    <br>

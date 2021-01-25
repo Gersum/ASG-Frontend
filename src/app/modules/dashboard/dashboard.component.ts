@@ -6,10 +6,8 @@ import {MatSort} from '@angular/material/sort';
 import { IssuesService } from 'src/app/modules/issues.service';
 import { Router } from '@angular/router';
 import { HarvestService } from 'src/app/_services/harvest.service';
-import { faUserSecret,faUsers,faHatCowboy,faBook,faSeedling,faLeaf} from '@fortawesome/free-solid-svg-icons';
-
-// 
-
+import { faUserSecret,faUsers,faHatCowboy,faBook,faSeedling,faLeaf, faWarehouse, faTractor, faSpa} from '@fortawesome/free-solid-svg-icons';
+import { Subscriber } from 'src/app/model/subscriber.model';
 // import { MatTableDataSource } from '@angular/material/table';
 // import { Issue } from '../../model/issue.model';
 import { User } from '../../model/user.model';
@@ -19,8 +17,8 @@ import { Harvest } from 'src/app/model/harvest.model';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { SubscriberService } from 'src/app/_services/subscriber.service';
 import { PlantService } from 'src/app/_services/plant.service';
-
-
+import { Charts } from './../../model/data';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,14 +27,16 @@ import { PlantService } from 'src/app/_services/plant.service';
 })
 export class DashboardComponent implements OnInit {
 
-
   faUserSecret=faUserSecret;
   faUsers=faUsers;
   faHatCowboy=faHatCowboy;
   faBook=faBook;
   faSeedling=faSeedling;
   faLeaf=faLeaf;
-
+  faWarehouse=faWarehouse;
+  faTractor=faTractor;
+  faSpa=faSpa;
+  
   bigChart = [];
   cards = [];
   pieChart = [];
@@ -49,9 +49,12 @@ export class DashboardComponent implements OnInit {
   showSeederBoard  = false;
   showUserBoard  = false;
   username: string;
- 
- 
- dataSource : any;
+
+
+  
+
+  dataSource : any;
+  dataSourceSub:any;
   userCount: number;
    userRoleCount: number;
    userAdminRoleCount: number;
@@ -63,8 +66,9 @@ export class DashboardComponent implements OnInit {
    ExtentionHarvestCount:any;
    ExtentionPlantationCount:any;
 
-
    harvestCount: any;
+   TotalPlantCount:any;
+   TotalPlantQuantity:any;
    harvestQuantityCount: any;
   harverstTotalQtySum:any;
   harvests: Harvest[];
@@ -72,10 +76,10 @@ export class DashboardComponent implements OnInit {
   ExtentionPlantCountEach : any;
     
    displayedColumns=['username','email','roles','createdAt'];
-   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator ;
-   @ViewChild(MatSort, {static: true}) sort: MatSort;
+   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator ;
+   @ViewChild(MatSort, {static: false}) sort: MatSort;
+  TotalFarmersCount: any;
   
-
   constructor(private dashboardService: DashboardService ,private issueService :IssuesService,private harvestService :HarvestService, private subService:SubscriberService,private plantService : PlantService , private router:Router, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit() {
@@ -91,12 +95,9 @@ export class DashboardComponent implements OnInit {
      this.loadExtentionRoleCount();
      this.loadSeederRoleCount();
      this.loadUserRoleCount();
-     
-
 
      ////////////////////////////
 
-     
      this.loadHarvestCount();
     // this.loadQuantityCount();
      this.loadTotalFarmerQuantity();
@@ -105,7 +106,9 @@ export class DashboardComponent implements OnInit {
      this.SpecificExWorkerPlantatonCount();
      this.SpecificExWorkerHarvestQuantityCountEach();
       this.SpecificExWorkerPlantatonCountEach();
-
+      this.loadTotalPlantationQuantity();
+      this.loadTotalPlantationCount();
+     
 
      this.isLoggedIn = !!this.tokenStorageService.getToken();
 
@@ -118,11 +121,36 @@ export class DashboardComponent implements OnInit {
        this.showSeederBoard = this.roles.includes('ROLE_SEEDER');
        this.showUserBoard = this.roles.includes('ROLE_USER');
 
- 
        this.username = user.username;
      }
+
+     var myChart = new Chart("UserRequest", {
+      type: 'line',
+      data: {
+          labels: ['January','February','March', 'April','April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+          datasets: [{
+            fill: false,
+              label: 'System Requests Monthly Report',
+              data: [12, 19, 3, 5, 2, 3, 15, 9, 8, 12, 20, 9],
+              borderColor: [
+                  'black'
+              ],
+              borderWidth: 3,
+              
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });
+
    }
- 
 
   public fetchIssues(){
     this.issueService
@@ -183,7 +211,6 @@ export class DashboardComponent implements OnInit {
 
  ///////////////////////////////////////////////////
 
- 
  loadHarvestCount(){
   this.harvestService.getHarvestCount().subscribe((harvests)=>{
     this.harvestCount = harvests[0].count;
@@ -225,7 +252,6 @@ SpecificExWorkerPlantatonCount(){
   });
 }
 
-
 SpecificExWorkerHarvestQuantityCountEach(){
   this.harvestService.getSpecificExtentionHarvestEach().subscribe((data)=>{
     //this.ExtentionHarvestCountEach = data ;
@@ -236,16 +262,11 @@ SpecificExWorkerHarvestQuantityCountEach(){
         {
           this.ExtentionHarvestCountEach = data[i].total
         }
-
-    }
-    
-    
+    }    
   });
 }
 
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 SpecificExWorkerPlantatonCountEach(){
   this.plantService.getSpecificExWorkerPlantQuantity().subscribe((data)=>{
@@ -256,15 +277,32 @@ SpecificExWorkerPlantatonCountEach(){
         {
           console.log("Plantation quantity each: ")
           console.log(data[i].total)
-
           this.ExtentionPlantCountEach = data[i].total
         }
-
     }
-    
-    
   });
 }
+
+loadTotalPlantationQuantity(){
+  this.plantService.getAllPlantQuantity().subscribe((plants)=>{
+    this.TotalPlantQuantity = plants[0].total;
+  });
+}
+
+loadTotalPlantationCount(){
+  this.plantService.getAllPlantCount().subscribe((plants)=>{
+    this.TotalPlantCount = plants[0].count;
+  });
+}
+
+
+loadTotalFarmersCount(){
+  this.subService.getAllFarmersCount().subscribe((farmers)=>{
+    this.TotalFarmersCount = farmers[0].count;
+  });
+}
+
+
 
 
 

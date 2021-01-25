@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
    <div id="map"
         leaflet
         (leafletMapReady)="initializeMap($event)"
@@ -237,6 +237,243 @@
   </tr>
   </tbody>
 </table>
+</div>
+</div>
+
+ </div>
+
+ 
+  -->
+
+
+  <div class="container">
+   <div id="map"
+        leaflet
+        (leafletMapReady)="initializeMap($event)"
+        [leafletOptions]="options"
+        (leafletClick)="onMapClick($event)">
+     <div class="leaflet-bottom leaflet-left">
+     </div>
+   </div>
+ 
+ <div class="col-md-6 offset-md-3">
+    <div *ngIf="weather; else waiting ">
+      <div class="col-sm-12 text-center">
+ 
+       <div class="input-group mt-5">
+       <input class="form-control" type="text" #userInput placeholder="Enter city name">
+        <div class="input-group-append">
+           <button class="input-group-text btn btn-outline-primary" (click)="getCity(userInput.value)">Search</button>
+        </div>
+
+
+       </div>
+         <h2>Current weather in {{weather.name}}, {{weather.sys.country}}</h2>
+       </div>
+       <div class="card"  style="box-shadow: 0  5px 6px 0 rgba(0,0,0,0.2);">
+
+       <div class="col-sm-12">
+          <span class="temp">Tempreture :<img src="../../../../assets/icons/{{weather.weather[0].icon}}.png" alt="o1d.png">
+         {{weather.main.temp | number :'1.0-0'}} &#176;C</span>
+          <p  style="padding-left: 80px; color: rgb(214, 7, 7);" class="text-uppercase font-italic font-weight-bold">{{weather.weather[0].description}}</p>
+       </div>
+
+         <table class="table table-light table-striped table-borded table-sm" >
+            <tbody style="padding-left: 10%;" >
+   
+               <tr>
+                  <td>Humidity</td><td>{{weather.main.humidity}}%</td>
+               </tr>
+               <tr>
+                <td>Pressure</td><td>{{weather.main.pressure}} hpa</td>
+             </tr>
+             <tr>
+                <td>Sunraise</td><td>{{weather.sys.sunrise * 1000 | date:'H:mm'}}</td>
+             </tr>
+    
+             <tr>
+                <td>Sunset</td><td>{{weather.sys.sunset * 1000 | date:'H:mm'}}</td>
+             </tr>
+    
+             <tr>
+                <td>Wind Speed</td><td>{{weather.wind.speed}}</td>
+             </tr>
+    
+             <tr>
+                <td>Wind Degree</td><td>{{weather.wind.deg}}</td>
+             </tr>
+             <tr>
+                <td>Geo coordinates</td><td>{{weather.coord.lat}},{{weather.coord.lon}}</td>
+             </tr>
+    
+             
+            </tbody>
+         </table>
+       </div>
+
+ </div>
+ <ng-template #waiting>
+     <h5>loading ...</h5>
+     <div class="input-group mt-5" *ngIf="locationDeniedEnableCity">
+          <input class="form-control" type="text" #userInput placeholder="Enter city name">
+           <div class="input-group-append">
+              <button class="input-group-text btn btn-outline-primary" (click)="getCity(userInput.value)">Search</button>
+           </div>
+          </div>
+ </ng-template>
+ 
+    </div>
+ 
+    
+   
+<div>
+   <br><br>
+ <div class="col-sm-12 text-center">
+   <h2>Five days weather forecast</h2></div>
+<div class="row">
+   <div class="col-sm-4">
+ <table class="table table-light table-striped table-borded table-sm">
+  <tbody>
+
+     <tr>
+        <td> <strong style="color: blue;">Date </strong></td>
+        <td>{{forcast.list[3].dt_txt}}</td>
+     </tr>
+     <tr>
+        <td>Tempreture </td><td>{{forcast.list[3].main.temp | number :'1.0-0'}} &#176;C</td>
+     </tr>
+
+     <tr>
+      <td>Pressure</td><td>{{forcast.list[3].main.pressure}} hpa</td>
+   </tr>
+
+   <tr>
+     <td>Humidity</td><td>{{forcast.list[3].main.humidity}} %</td>
+  </tr>
+
+  <tr>
+     <td>Probability of Rainfall</td><td>{{forcast.list[3].pop}}</td>
+  </tr>
+
+  </tbody>
+</table>
+
+</div>
+<div class="col-sm-4">
+<table class="table table-light table-striped table-borded table-sm">
+  <tbody>
+
+
+     <tr>
+        <td> <strong style="color: blue;">Date </strong></td><td> <p >{{forcast.list[10].dt_txt}}</p></td>
+     </tr>
+     <tr>
+        <td>Tempreture </td><td>{{forcast.list[10].main.temp | number :'1.0-0'}} &#176;C</td>
+     </tr>
+
+     <tr>
+      <td>Pressure</td><td>{{forcast.list[10].main.pressure}} hpa</td>
+   </tr>
+
+   <tr>
+     <td>Humidity</td><td>{{forcast.list[10].main.humidity}} %</td>
+  </tr>
+
+  <tr>
+     <td>Probability of Rainfall</td><td>{{forcast.list[10].pop}}</td>
+  </tr>
+ 
+  </tbody>
+</table>
+  </div>
+  
+  <div class="col-sm-4">
+<table class="table table-light table-striped table-borded table-sm">
+  <tbody>
+
+
+     <tr>
+        <td> <strong style="color: blue;">Date </strong></td><td>{{forcast.list[20].dt_txt}}</td>
+     </tr>
+     <tr>
+        <td>Tempreture </td><td>{{forcast.list[20].main.temp | number :'1.0-0'}} &#176;C</td>
+     </tr>
+
+     <tr>
+      <td>Pressure</td><td>{{forcast.list[20].main.pressure}} hpa</td>
+   </tr>
+
+   <tr>
+     <td>Humidity</td><td>{{forcast.list[20].main.humidity}} %</td>
+  </tr>
+
+  <tr>
+     <td>Probability of Rainfall</td><td>{{forcast.list[20].pop}}</td>
+  </tr>
+  
+
+  </tbody>
+</table>
+</div>
+
+
+<div class="col-sm-4">
+
+<table class="table table-light table-striped table-borded table-sm">
+  <tbody>
+
+
+     <tr>
+        <td> <strong style="color: blue;">Date </strong></td><td>{{forcast.list[30].dt_txt}}</td>
+     </tr>
+     <tr>
+        <td>Tempreture </td><td>{{forcast.list[30].main.temp | number :'1.0-0'}} &#176;C</td>
+     </tr>
+
+     <tr>
+      <td>Pressure</td><td>{{forcast.list[30].main.pressure}} hpa</td>
+   </tr>
+
+   <tr>
+     <td>Humidity</td><td>{{forcast.list[30].main.humidity}} %</td>
+  </tr>
+
+  <tr>
+     <td>Probability of Rainfall</td><td>{{forcast.list[30].pop}}</td>
+  </tr>
+  
+
+  </tbody>
+</table>
+
+</div>
+
+<div class="col-sm-4">
+<table class="table table-light table-striped table-borded table-sm">
+  <tbody>
+
+
+     <tr>
+        <td><strong style="color: blue;" > Date </strong></td><td>{{forcast.list[39].dt_txt}}</td>
+     </tr>
+     <tr>
+        <td>Tempreture </td><td>{{forcast.list[39].main.temp| number :'1.0-0'}} &#176;C</td>
+     </tr>
+
+     <tr>
+      <td>Pressure</td><td>{{forcast.list[39].main.pressure}} hpa</td>
+   </tr>
+
+   <tr>
+     <td>Humidity</td><td>{{forcast.list[39].main.humidity}} %</td>
+  </tr>
+
+  <tr>
+     <td>Probability of Rainfall</td><td>{{forcast.list[39].pop}}</td>
+  </tr>
+  </tbody>
+</table>
+
 </div>
 </div>
 
