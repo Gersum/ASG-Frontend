@@ -198,7 +198,7 @@ export class DashboardComponent implements OnInit {
   loadExtentionRoleCount(){
     this.issueService.getUserRoleCount().subscribe((users)=>{
       this.userExtentionRoleCount =users[2].count; // 2 ---> Extention
-    //  console.log("roles count:"+data[1].count)
+      console.log("roles count:"+users[1].count)
     });
   }
 

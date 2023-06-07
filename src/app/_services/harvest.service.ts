@@ -9,7 +9,9 @@ import { tap } from 'rxjs/operators';
 })
 export class HarvestService {
 
-  url= 'http://localhost:8080';
+  //url= 'http://localhost:8080';
+  url= 'http://backend:3000';
+
   constructor(public http : HttpClient) {}
 
   getAll() {

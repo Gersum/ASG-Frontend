@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class SubscriberService {
 
-  url= 'http://localhost:8080';
+  url= 'http://backend:3000';
  
 
   constructor(public http : HttpClient) {}

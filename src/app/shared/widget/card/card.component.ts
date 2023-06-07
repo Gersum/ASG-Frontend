@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as Highcharts from 'highcharts';
-import HC_exporting from 'highcharts/modules/exporting';
-import { MarkModel } from './../../../model/mark-model';
+// import HC_exporting from 'highcharts/modules/exporting';
+// import { MarkModel } from './../../../model/mark-model';
 //import { StudentserviceService } from './../../../service/studentservice.service';
 //import { Container } from '@angular/compiler/src/i18n/i18n_ast';
 import { TokenStorageService } from '../../../_services/token-storage.service';
@@ -19,7 +19,7 @@ export class CardComponent implements OnInit {
   @Input() percentage: string ;
 
   @Input() data=[];
-  students: MarkModel[];
+  // students: MarkModel[];
 
   private roles: string[];
   isLoggedIn = false;

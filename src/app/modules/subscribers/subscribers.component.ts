@@ -11,18 +11,24 @@ import { Subscriber } from 'src/app/model/subscriber.model';
 // import { MatTableDataSource } from '@angular/material/table';
 // import { Issue } from '../../model/issue.model';
 import { User } from '../../model/user.model';
-import { any } from '@tensorflow/tfjs';
+
 //import { User } from './../../model/user.model';
 import { Harvest } from 'src/app/model/harvest.model';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { SubscriberService } from 'src/app/_services/subscriber.service';
 import { PlantService } from 'src/app/_services/plant.service';
-import { Charts } from './../../model/data';
-import { Chart } from 'chart.js';
+
 @Component({
   selector: 'app-Subscribers',
-  templateUrl: './Subscribers.component.html',
-  styleUrls: ['./Subscribers.component.scss']
+  template: `<p> sub page </p>`,
+  styles:[
+    `
+    h1 {
+      font-size: 24px;
+      color: blue;
+    }
+    `
+  ]
 })
 export class SubscribersComponent implements OnInit {
 

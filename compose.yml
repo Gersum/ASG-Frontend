@@ -1,0 +1,45 @@
+services:
+  frontend:
+    build:
+      context: "../../git-repos/ASG-Frontend"
+      dockerfile: "./angular.Dockerfile"
+    ports:
+      -5000:4500
+    networks:
+      - events_net
+    links:
+      - backend
+  backend:
+    build:
+      context: "../ASG-Backend"
+      dockerfile: "./Dockerfile"
+    networks:
+      - events_net
+    links:
+      - mongo-db
+  mongo-db:
+    image: mongo:latest
+    ports:
+      - 27017:27018
+    networks:
+      - events_net
+   
+  proxy:
+    image: nginx:alpine
+    environment:
+      - NGINX_ENVSUBST_TEMPLATE_SUFFIX=.conf
+      - NGINX_ENVSUBST_OUTPUT_DIR=/etc/nginx
+    volumes:
+      - ${PWD}/nginx.conf:/etc/nginx/templates/nginx.conf.conf
+      
+    ports:
+      - 8080:7000
+    networks:
+      - events_net
+networks:
+  events_net:
+    
+
+  # docker container rm $(docker container ls -aq) -f
+  # docker container rmi $(docker images ls -aq) -f
+  # docker compose up -d 

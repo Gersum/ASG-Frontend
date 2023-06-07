@@ -1,31 +1,6 @@
 <!-- Subscribers tabel -->
-		<table  mat-table [dataSource]="dataSourceSub" matSort style="width: 100%;" >
-	
-			<ng-container matColumnDef="name">
-				<th mat-header-cell *matHeaderCellDef  mat-sort-header style="color: black;"> Farmer Name </th>
-				<td mat-cell *matCellDef="let element"> {{element.name}} </td>
-			</ng-container>
-	
-			<ng-container matColumnDef="city">
-				<th mat-header-cell *matHeaderCellDef mat-sort-header  style="color: black;"> City </th>
-				<td mat-cell *matCellDef="let element"> {{element.city}} </td>
-			</ng-container>
-	
-			<ng-container matColumnDef="phone">
-				<th mat-header-cell *matHeaderCellDef mat-sort-header  style="color: black;"> Phone </th>
-				<td mat-cell *matCellDef="let element"> {{element.phone}} </td>
-			</ng-container>
-	
-			<ng-container matColumnDef="createdAt">
-				<th mat-header-cell *matHeaderCellDef mat-sort-header  style="color: black;">Date Created </th>
-				<td mat-cell *matCellDef="let element"> {{element.createdAt| date : 'short'}} </td>
-				
-			</ng-container>
-	
-			<tr mat-header-row *matHeaderRowDef="displayedColumnsSub"></tr>
-			<tr mat-row *matRowDef="let row; columns: displayedColumnsSub;"></tr>
+		<!-- 
 			
-		</table>
-		<mat-paginator style="width: 100%;"  [length] = "50" [pageSizeOptions]="[5, 10, 15 ,20]"></mat-paginator>
+		 -->
 		
 <!-- end of subscribers table -->
